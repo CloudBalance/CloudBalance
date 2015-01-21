@@ -19,23 +19,22 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  Access, manage, and search all of your cloud accounts.
+  Cloud Storage Manager
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Access, manage, and search all of your cloud accounts.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  A web application that allows you to quickly move files between Google Drive and Dropbox.  Search for your files no matter where they're stored.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  With so many cloud-based storage options, it's difficult to keep track of the location of where specific files are stored. Additionally, it can be difficult for the user to know how much space they have on each account and allocate files to open resources.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  CloudBalance is a single site that allows users to view, search, and move files between their storage services.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  Alan likes it!
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
