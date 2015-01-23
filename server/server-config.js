@@ -1,18 +1,24 @@
 var express = require('express');
 var partials = require('express-partials');
-var util = require('./lib/utility');
-var fs = require('fs');
 var https = require('https');
+var http = require('http');
+var fs = require('fs');
 
-var handler = require('./lib/request-handler');
+// var handler = require('./lib/request-handler');
+// var util = require('./lib/utility');
 
 var app = express();
+
 var router = express.Router();
+
+module.exports = app;
+
+
 
 // paths
   //
 
-app.use()
+// app.use()
 
 
 
