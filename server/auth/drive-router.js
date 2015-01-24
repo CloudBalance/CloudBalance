@@ -17,7 +17,7 @@ var scopes = [
 var callback = 'https://localhost:8000/auth/drive/callback';
 
 var url = oauth2Client.generateAuthUrl({
-  access_type: 'offline', // 'online' (default) or 'offline' (gets refresh_token)
+  // access_type: 'offline', // 'online' (default) or 'offline' (gets refresh_token)
   scope: scopes // If you only need one scope you can pass it as string
 });
 
@@ -34,7 +34,30 @@ driveRouter.get('/', function(req, res) {
 	res.redirect(url);
 })
 
-console.log(url);
+driveRouter.get('/callback', function(req, res){
+	var code = req.query.code
+	oauth2Client.getToken(code, function(err, tokens) {
+		console.log('this is the error ', err);
+		console.log('this is the token ', tokens);
+	  // Now tokens contains an access_token and an optional refresh_token. Save them.
+
+	  oauth2Client.setCredentials({
+	    access_token: tokens.access_token
+	    // refresh_token: 'REFRESH TOKEN HERE'
+	  });
+
+	  drive.files.list({}, function(a,b) {console.log(b)});
+
+
+
+
+	  if(!err) {
+	    oauth2Client.setCredentials(tokens);
+	  }
+	});
+	res.end();
+})
+
 
 
 
