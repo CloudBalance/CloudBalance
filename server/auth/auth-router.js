@@ -10,4 +10,9 @@ authRouter.use('/test', function(req,res) {
   res.end('working');
 });
 
+authRouter.get('/logout', function(req, res) {
+  //log the user out of both services
+  //make sure we aren't storing the tokens anywhere
+})
+
 module.exports = authRouter;
