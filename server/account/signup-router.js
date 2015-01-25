@@ -1,4 +1,4 @@
-var secrets = require('./secrets/dropbox.secret');
+// var secrets = require('./secrets/dropbox.secret');
 var https = require('https');
 var express = require('express');
 var Promise = require('bluebird');
@@ -16,9 +16,9 @@ signupRouter.post('/signup', function (req,res) {
         //if so, log the user in
         //if the credentials do not match, say that the user already exists and they'll need to pick a new username
       //if the user does not exist
-        //create the user in the db
-        //store the password in the db
         //have them log into both services and store those tokens in the db
+        //create the user in the db- but only after they've logged into both services
+        //store the password in the db
         //do authenticationy things
   //Final Redirect: 
     //send the user to the logged in homepage
