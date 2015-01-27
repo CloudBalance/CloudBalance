@@ -17,6 +17,7 @@ var AppActions = {
       actionType: AppConstants.INCREASE_ITEM,
       index: index
     })
+<<<<<<< HEAD
   },
 
   updateFileLists: function(data) {
@@ -26,6 +27,11 @@ var AppActions = {
     })
   }
 
+=======
+  }
+
+
+>>>>>>> adds public react/flux files again, trying to complete rebase
 };
 
 
