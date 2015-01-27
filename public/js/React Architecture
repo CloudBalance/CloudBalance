@@ -1,0 +1,40 @@
+React Architecture:
+
+Dispatcher
+  functions:
+    handleServerAction
+    handleViewAction
+Stores
+  DropboxStore
+    require: dispatcher, constants, eventEmitter, object-assign, actionTypes...
+    functions:
+      emitChange
+      addChangeListener
+      removeChangeListener
+      get
+      getAll
+      getAllForCurrentFolder???
+
+  DriveStore
+Constants
+Actions
+
+CloudBalanceApp
+  require: Header, Footer, MainSection, React, Store
+  functions:
+    render
+    getInitialState - get...State
+    componentDidMount?
+    componentWillUnmount?
+    _onChange
+Header
+  require: React, Actions, ...
+  render
+  _onSave?
+MainSection
+DropBoxSection
+DriveSection
+Footer
+Folder
+File
+
