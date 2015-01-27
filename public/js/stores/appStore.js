@@ -8,6 +8,7 @@ var EventEmitter = require('events').EventEmitter;
 var CHANGE_EVENT = 'change';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var _dropboxFileList = {};
 var _googleFileList = {};
 
@@ -56,19 +57,40 @@ var _increaseItem = function(index){
 };
 
 
+=======
+var _dropboxFileList = {};
+var _googleFileList = {};
+>>>>>>> building out flux/react files
 
 
 var AppStore = assign({}, EventEmitter.prototype, {
-
-  // getAllFiles...
-    // return ...data from GET request
-  // getAllDropboxData
-  // getAllDriveData..
-
   // adding methods to the EventEmitter
+
+  /**
+   * Get the entire collection of files.
+   * @return {object}
+   */
+  getAll: function() {
+    return {
+      _dropboxFileList,
+      _googleFileList
+    };
+  },
+
+  updateFileLists: function(data) {
+    _dropboxFileList = data.dropboxFileList;
+    _googleFileList = data.googleFileList;
+    emitChange();
+  },
+
   emitChange: function() {
+<<<<<<< HEAD
     this.emit(CHANGE_EVENT);   // CHANGE_EVENT is just a string ('change')
 >>>>>>> adds public react/flux files again, trying to complete rebase
+=======
+    this.emit(CHANGE_EVENT);
+      // CHANGE_EVENT is just a string ('change')
+>>>>>>> building out flux/react files
   },
 
   addChangeListener: function(callback) {

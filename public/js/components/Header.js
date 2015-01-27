@@ -1,6 +1,11 @@
 var React = require('react');
+<<<<<<< HEAD
 var AppActions = require('../actions/appActions');
 // var TodoTextInput = require('./TodoTextInput.react');
+=======
+var TodoActions = require('../actions/TodoActions');
+var TodoTextInput = require('./TodoTextInput.react');
+>>>>>>> building out flux/react files
 
 var Header = React.createClass({
 
