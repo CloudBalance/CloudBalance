@@ -7,6 +7,7 @@ var Google = require('./Google.js');
 var MainSection = React.createClass({
 
   // Ajax calls are not really React methods, so they're supposed to go into the statics object (below). This difference doesn't do much, but might be better for performance, complies with the React documentation, AND causes you to have to call these methods in the following format: MainSection.getAllFiles()
+<<<<<<< HEAD
   statics: {
     getAllFiles: function () {
       $.ajax({
@@ -65,4 +66,61 @@ var MainSection = React.createClass({
 
 });
 
+=======
+    statics: {
+      getAllFiles: function () {
+        // TODO: put this into a component statics object
+        $.ajax({
+          url: '1/getAllFiles',
+          dataType: 'json',
+          success: function(data) {
+            // this.setState({data: data});
+            AppActions.updateGoogleFileList(data.googleFileList);
+            AppActions.updateDropboxFileList(data.dropboxFileList);
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+          }.bind(this)
+        });
+      },
+
+      // Need to set the
+      moveFiles: function(data) {
+        $.ajax({
+          url: '1/moveFiles',
+          dataType: 'json',
+          type: 'POST',
+          data: {
+            fileID: data.fileID,  // Does this work for folders?
+            to: data.toDirectory,   // properly
+            from: data.fromDirectory,
+            fromService: data.fromService,
+            toService: data.toService,
+
+          },
+          success: function(data) {
+
+            this.setState({data: data});
+          }.bind(this),
+          error: function(xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+          }.bind(this)
+        });
+      },
+    },
+
+    render:function(){
+      return (
+        <div>
+          <Dropbox
+            dropboxFileList={this.props.allFiles.dropboxFileList} />
+          <Google
+            class="files-container"
+            id="google-container"
+            googleFileList={this.props.allFiles.googleFileList} />
+
+      )
+    }
+  });
+>>>>>>> building out flux/react files
 module.exports = MainSection;

@@ -1,7 +1,11 @@
 /** @jsx React.DOM */
 var React = require('react');
 var AppActions = require('../actions/appActions');
+<<<<<<< HEAD
 var AppStore = require('../stores/appStore');
+=======
+var AppStore = require('../store/appStore');
+>>>>>>> building out flux/react files
 
 var getStateFromStore = function() {
   return {
@@ -9,7 +13,11 @@ var getStateFromStore = function() {
   }
 };
 
+<<<<<<< HEAD
 var getFile = function(id) {
+=======
+var getFile(id) {
+>>>>>>> building out flux/react files
   return (
     <File
       key = {dropboxFileList.fileID} 
