@@ -7,8 +7,6 @@ var EventEmitter = require('events').EventEmitter;
 // Non-Flux-related items
 var CHANGE_EVENT = 'change';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 var _dropboxFileList = {};
 var _googleFileList = {};
 
@@ -36,61 +34,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
   emitChange: function() {
     this.emit(CHANGE_EVENT);
       // CHANGE_EVENT is just a string ('change')
-=======
-// From shopping cart example
-var _cartItems = [];
-var _addItem = function(item) {
-  if (!item.inCart) {
-    item['qty'] = 1;
-    item['inCart'] = true;
-    _cartItems.push(item);
-  } else {
-    _cartItems.forEach(function(cartItem, i) {
-      if (cartItem.id === item.id) {
-        _increaseItem(i);
-      }
-    });
-  }
-};
-var _increaseItem = function(index){
-  _cartItems[index].qty++;
-};
-
-
-=======
-var _dropboxFileList = {};
-var _googleFileList = {};
->>>>>>> building out flux/react files
-
-
-var AppStore = assign({}, EventEmitter.prototype, {
-  // adding methods to the EventEmitter
-
-  /**
-   * Get the entire collection of files.
-   * @return {object}
-   */
-  getAll: function() {
-    return {
-      _dropboxFileList,
-      _googleFileList
-    };
-  },
-
-  updateFileLists: function(data) {
-    _dropboxFileList = data.dropboxFileList;
-    _googleFileList = data.googleFileList;
-    emitChange();
-  },
-
-  emitChange: function() {
-<<<<<<< HEAD
-    this.emit(CHANGE_EVENT);   // CHANGE_EVENT is just a string ('change')
->>>>>>> adds public react/flux files again, trying to complete rebase
-=======
-    this.emit(CHANGE_EVENT);
-      // CHANGE_EVENT is just a string ('change')
->>>>>>> building out flux/react files
   },
 
   addChangeListener: function(callback) {

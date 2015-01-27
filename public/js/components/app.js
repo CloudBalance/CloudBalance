@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 // var Footer = require('./Footer');
-=======
-var Footer = require('./Footer');
->>>>>>> building out flux/react files
-=======
-// var Footer = require('./Footer');
->>>>>>> more updates to react files, syntax errors & basic debugging
 var Header = require('./Header');
 var MainSection = require('./MainSection');
 var React = require('react');

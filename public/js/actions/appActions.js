@@ -17,8 +17,13 @@ var AppActions = {
       actionType: AppConstants.INCREASE_ITEM,
       index: index
     })
-<<<<<<< HEAD
-<<<<<<< HEAD
+  },
+
+  updateFileLists: function(data) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_FILE_LISTS,
+      data: data
+    })
   },
 
   updateFileLists: function(data) {
@@ -27,21 +32,6 @@ var AppActions = {
       data: data
     })
   }
-
-=======
-  }
-=======
-  },
->>>>>>> more updates to react files, syntax errors & basic debugging
-
-  updateFileLists: function(data) {
-    AppDispatcher.handleViewAction({
-      actionType: AppConstants.UPDATE_FILE_LISTS,
-      data: data
-    })
-  }
-
->>>>>>> adds public react/flux files again, trying to complete rebase
 };
 
 

@@ -1,16 +1,6 @@
 var React = require('react');
-<<<<<<< HEAD
-<<<<<<< HEAD
 var AppActions = require('../actions/appActions');
 // var TodoTextInput = require('./TodoTextInput.react');
-=======
-var TodoActions = require('../actions/TodoActions');
-var TodoTextInput = require('./TodoTextInput.react');
->>>>>>> building out flux/react files
-=======
-var AppActions = require('../actions/appActions');
-// var TodoTextInput = require('./TodoTextInput.react');
->>>>>>> more updates to react files, syntax errors & basic debugging
 
 var Header = React.createClass({
 
