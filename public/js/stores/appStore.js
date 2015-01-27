@@ -7,38 +7,33 @@ var EventEmitter = require('events').EventEmitter;
 // Non-Flux-related items
 var CHANGE_EVENT = 'change';
 
-// From shopping cart example
-var _cartItems = [];
-var _addItem = function(item) {
-  if (!item.inCart) {
-    item['qty'] = 1;
-    item['inCart'] = true;
-    _cartItems.push(item);
-  } else {
-    _cartItems.forEach(function(cartItem, i) {
-      if (cartItem.id === item.id) {
-        _increaseItem(i);
-      }
-    });
-  }
-};
-var _increaseItem = function(index){
-  _cartItems[index].qty++;
-};
-
-
+var _dropboxFileList = {};
+var _googleFileList = {};
 
 
 var AppStore = assign({}, EventEmitter.prototype, {
-
-  // getAllFiles...
-    // return ...data from GET request
-  // getAllDropboxData
-  // getAllDriveData..
-
   // adding methods to the EventEmitter
+
+  /**
+   * Get the entire collection of files.
+   * @return {object}
+   */
+  getAll: function() {
+    return {
+      _dropboxFileList,
+      _googleFileList
+    };
+  },
+
+  updateFileLists: function(data) {
+    _dropboxFileList = data.dropboxFileList;
+    _googleFileList = data.googleFileList;
+    emitChange();
+  },
+
   emitChange: function() {
-    this.emit(CHANGE_EVENT);   // CHANGE_EVENT is just a string ('change')
+    this.emit(CHANGE_EVENT);
+      // CHANGE_EVENT is just a string ('change')
   },
 
   addChangeListener: function(callback) {
