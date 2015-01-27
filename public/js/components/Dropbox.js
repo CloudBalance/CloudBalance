@@ -2,10 +2,14 @@
 var React = require('react');
 var AppActions = require('../actions/appActions');
 <<<<<<< HEAD
+<<<<<<< HEAD
 var AppStore = require('../stores/appStore');
 =======
 var AppStore = require('../store/appStore');
 >>>>>>> building out flux/react files
+=======
+var AppStore = require('../stores/appStore');
+>>>>>>> more updates to react files, syntax errors & basic debugging
 
 var getStateFromStore = function() {
   return {
@@ -14,10 +18,14 @@ var getStateFromStore = function() {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var getFile = function(id) {
 =======
 var getFile(id) {
 >>>>>>> building out flux/react files
+=======
+var getFile = function(id) {
+>>>>>>> more updates to react files, syntax errors & basic debugging
   return (
     <File
       key = {dropboxFileList.fileID} 
