@@ -24,7 +24,8 @@
     "object-assign": "^2.0.0",
     "passport": ">= 0.0.0",
     "passport-google-oauth2": ">= 0.0.0",
-    "react-tools": "^0.12.2"
+    "react-tools": "^0.12.2",
+    "querystring": "^0.2.0"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
@@ -35,4 +36,8 @@
     "react": "^0.12.2",
     "reactify": "^0.13.1"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Successful Dropbox Authorization code retrieval
