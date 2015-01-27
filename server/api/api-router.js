@@ -19,7 +19,9 @@ apiRouter.get('/1/getAllFiles', function(req,res) {
 apiRouter.get('/1/moveFiles', function(req,res) {
   //From Client: 
     //fromService
+    //fromLocation
     //toService
+    //toLocation
     //fileID
     //fileLink: Optional for now. i assume the fileID is what we need to find the file, not hte fileLink.
   //server Actions:
