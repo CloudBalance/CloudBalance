@@ -1,4 +1,4 @@
-var Footer = require('./Footer');
+// var Footer = require('./Footer');
 var Header = require('./Header');
 var MainSection = require('./MainSection');
 var React = require('react');
