@@ -10,8 +10,16 @@ var oauth2Client = new OAuth2(secrets.CLIENT_ID, secrets.CLIENT_SECRET, secrets.
 google.options({ auth: oauth2Client });
 
 var scopes = [
-	'https://www.googleapis.com/auth/drive',
-	'https://www.googleapis.com/auth/userinfo.profile'
+	"https://www.googleapis.com/auth/drive",
+	"https://www.googleapis.com/auth/drive.file",
+  "https://www.googleapis.com/auth/drive.readonly.metadata",
+  "https://docs.google.com/feeds",
+  "https://www.googleapis.com/auth/drive.apps.readonly",
+  "https://www.googleapis.com/auth/drive.readonly",
+  "https://www.googleapis.com/auth/drive.install",
+  "https://www.googleapis.com/auth/drive.appdata",
+  "https://www.googleapis.com/auth/drive.scripts",
+	"https://www.googleapis.com/auth/userinfo.profile"
 ];
 
 var callback = 'https://localhost:8000/auth/drive/callback';
@@ -36,9 +44,18 @@ var getFiles = function(req, res, params) {
 
 	var list = [];
 	params = params || {};
-	drive.about.get({}, function(error, result) {
-		console.log(result)
-	})
+	//get children, get file of each child, get the title of that file
+	// drive.about.get({}, function(error, result) {
+	// 	console.log(result.rootFolderId);
+	// })
+	// drive.children.list({folderId: '0B16S8E0_wBt-Mjd1a0pOWmlUOFk'}, function(error, result){
+	// 	console.log('this is the error ', error);
+	// 	console.log('this is the result ', result);
+	// })
+	// result.mimeType = 'application/vnd.google-apps.folder';
+	drive.files.get({fileId: '0B16S8E0_wBt-OXNQcW90SVZXaEE'}, function(error, result) {console.log(result)});
+	// drive.children.get({folderId: '0B16S8E0_wBt-Mjd1a0pOWmlUOFk',
+	// 									 childId:'0B16S8E0_wBt-ZkNWZl9fRnU5TlE'},function(error, result) {console.log(result)});
 	// drive.files.list(params, function(error, result) {
 	// 	// var items = result.items;
 	// 	// for (var i = 0; i < items.length; i++) {
