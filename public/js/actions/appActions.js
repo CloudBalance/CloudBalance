@@ -19,6 +19,12 @@ var AppActions = {
     })
   }
 
+  updateFileLists: function(data) {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.UPDATE_FILE_LISTS,
+      data: data
+    })
+  }
 
 };
 
