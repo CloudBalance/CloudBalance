@@ -17,7 +17,7 @@ var AppActions = {
       actionType: AppConstants.INCREASE_ITEM,
       index: index
     })
-  }
+  },
 
   updateFileLists: function(data) {
     AppDispatcher.handleViewAction({

@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
 var AppActions = require('../actions/appActions');
-var AppStore = require('../store/appStore');
+var AppStore = require('../stores/appStore');
 
 var getStateFromStore = function() {
   return {
@@ -9,7 +9,7 @@ var getStateFromStore = function() {
   }
 };
 
-var getFile(id) {
+var getFile = function(id) {
   return (
     <File
       key = {dropboxFileList.fileID} 
