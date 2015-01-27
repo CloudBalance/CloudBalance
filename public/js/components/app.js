@@ -15,11 +15,11 @@ var AppStore = require('../stores/appStore');
 /**
  * Retrieve the current TODO data from the TodoStore
  */
-function getAppState() {
+var getAppState = function() {
   return {
     allFiles: AppStore.getAll()
   };
-}
+};
 
 var App = React.createClass({
 
