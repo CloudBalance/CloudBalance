@@ -18,6 +18,7 @@ var AppActions = {
       index: index
     })
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
 
   updateFileLists: function(data) {
@@ -29,6 +30,9 @@ var AppActions = {
 
 =======
   }
+=======
+  },
+>>>>>>> more updates to react files, syntax errors & basic debugging
 
   updateFileLists: function(data) {
     AppDispatcher.handleViewAction({

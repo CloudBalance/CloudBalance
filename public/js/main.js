@@ -5,10 +5,14 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var APP = require('./components/app.js');
 =======
 var APP = require('./components/app-stock.js');
 >>>>>>> adds public react/flux files again, trying to complete rebase
+=======
+var APP = require('./components/app.js');
+>>>>>>> more updates to react files, syntax errors & basic debugging
 // var CloudBalanceApp = require('./components/CloudBalanceApp.react');
 var React = require('react');
 window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
@@ -25,6 +29,10 @@ React.render(
   document.getElementById('main')
 );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> adds public react/flux files again, trying to complete rebase
+=======
+
+>>>>>>> more updates to react files, syntax errors & basic debugging
