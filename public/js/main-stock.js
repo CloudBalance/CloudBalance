@@ -2,10 +2,10 @@
  var APP = require('./components/app-stock');
  var React = require('react');
 
- React.renderComponent(
+ React.render(
    <APP />,
    document.getElementById('main'));
 
 
-// React.render(
+// React.renderComponent is deprecated method
 

@@ -1,6 +1,6 @@
 /*** @jsx React.DOM */
 var React = require('react');
-// var AppStore = require('../stores/appStore');
+var AppStore = require('../stores/appStore');
 var AppActions = require('../actions/appActions');
 // var TodoTextInput = require('./TodoTextInput.react');
 
@@ -23,6 +23,29 @@ var Header = React.createClass({
     AppActions.addItem('this is the item');
   },
 
+  statics: {
+    logoutClick: function() {
+      AppActions.logout();
+      $.ajax({
+        url: '/logout',
+        dataType: 'json',
+        type: 'POST',
+        data: '',           // pass any data in the logout???
+        success: function(data) {
+          console.log('Logged Out');
+          this.setState({data: ''data''});  // Might as well clear the state & store just in case--a front-end manual logout method, unless/until we're complete confident in server actions
+          AppStore.clear();
+          // should be routed by server to the login page
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
+    }
+    
+    
+  },
+
 
   /**
    * @return {object}
@@ -33,7 +56,7 @@ var Header = React.createClass({
         <h1>CloudBalance</h1>
         <h2 onClick={this.handleClick}>John</h2>
         <div id="banner-img"></div>
-        <h2>Logout</h2>
+        <h2 onClick={this.logoutClick}>Logout</h2>
       </header>
     );
   }

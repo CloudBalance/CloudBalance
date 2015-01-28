@@ -34,8 +34,8 @@ var MainSection = React.createClass({
         type: 'POST',
         data: {
           fileID: data.fileID,  // Does this work for folders?
-          to: data.toDirectory,   // properly
-          from: data.fromDirectory,
+          toLocation: data.toDirectory,   // properly
+          // fromLocation: data.fromDirectory,
           fromService: data.fromService,
           toService: data.toService,
         },
@@ -58,12 +58,8 @@ var MainSection = React.createClass({
   //   return (
   //     <div id="main-section">
   //       <Dropbox
-  //         className="files-container"
-  //         id="dropbox-container"
   //         dropboxFileList={this.props.allFiles.dropboxFileList} />
   //       <Google
-  //         className="files-container"
-  //         id="google-container"
   //         googleFileList={this.props.allFiles.googleFileList} />
   //     </div>
   //   );

@@ -35,4 +35,11 @@ var AppActions = {
 };
 
 
+logout: function() {
+  AppDispatcher.handleViewAction({
+    actionType: AppConstants.LOGOUT
+  });
+}
+
+
 module.exports = AppActions;
