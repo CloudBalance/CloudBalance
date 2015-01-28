@@ -11,11 +11,7 @@ var Header = React.createClass({
    */
   render: function() {
     return (
-      <header id="header">
-        <div id="banner-img"></div>
-        <h1>CloudBalance</h1>
-        <h2>Logout</h2>
-      </header>
+      <div>footer stuff</div>
     );
   }
 

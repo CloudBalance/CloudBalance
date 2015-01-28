@@ -33,7 +33,7 @@ var App = React.createClass({
    */
   render: function() {
     return (
-      <div>
+      <div id='main-container'>
         <Header />
         <MainSection
           allFiles={this.state.allFiles} />

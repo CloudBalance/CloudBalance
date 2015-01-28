@@ -10,7 +10,17 @@ var CHANGE_EVENT = 'change';
 var _dropboxFileList = {};
 var _googleFileList = {};
 
+// just a stock username
 var _username = 'John';
+
+// DOUBLECHECK: I think this goes here
+var _logout = function() {
+  // clear out the store I guess
+  _dropboxFileList = {}
+  _googleFileList = {};
+  // AppStore.state.dropboxFileList = {};   // setState?  shouldn't really do this outside the object...
+  // AppStore.state.googleFileList = {};
+}
 
 var AppStore = assign({}, EventEmitter.prototype, {
   // adding methods to the EventEmitter
@@ -58,6 +68,16 @@ var AppStore = assign({}, EventEmitter.prototype, {
     var action = payload.action; // this is our action from handleViewAction
     switch(action.actionType){
       // determine which method matches from AppConstants
+      
+      case AppConstants.UPDATE_FILE_LISTS:
+        _updateFileLists();
+        break;
+
+      case AppConstants.LOGOUT:
+        _logout();
+        break;
+
+
       case AppConstants.ADD_ITEM:
       // invoke correlating method stored above
         _addItem(payload.action.item);

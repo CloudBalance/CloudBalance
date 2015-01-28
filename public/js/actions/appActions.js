@@ -31,15 +31,14 @@ var AppActions = {
       actionType: AppConstants.UPDATE_FILE_LISTS,
       data: data
     })
+  },
+
+  logout: function() {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.LOGOUT
+    });
   }
+
 };
-
-
-logout: function() {
-  AppDispatcher.handleViewAction({
-    actionType: AppConstants.LOGOUT
-  });
-}
-
 
 module.exports = AppActions;

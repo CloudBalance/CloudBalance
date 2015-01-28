@@ -25,7 +25,9 @@ var Header = React.createClass({
 
   statics: {
     logoutClick: function() {
+      
       AppActions.logout();
+
       $.ajax({
         url: '/logout',
         dataType: 'json',
@@ -33,7 +35,8 @@ var Header = React.createClass({
         data: '',           // pass any data in the logout???
         success: function(data) {
           console.log('Logged Out');
-          this.setState({data: ''data''});  // Might as well clear the state & store just in case--a front-end manual logout method, unless/until we're complete confident in server actions
+          // this.setState({data: ''data''});  
+            // Might as well clear the state & store just in case--a front-end manual logout method, unless/until we're complete confident in server actions
           AppStore.clear();
           // should be routed by server to the login page
         }.bind(this),
@@ -53,10 +56,10 @@ var Header = React.createClass({
   render: function() {
     return (
       <header id="header">
-        <h1>CloudBalance</h1>
-        <h2 onClick={this.handleClick}>John</h2>
         <div id="banner-img"></div>
-        <h2 onClick={this.logoutClick}>Logout</h2>
+        <h1 id="title-header">CloudBalance</h1>
+        <h3 id="logout-header" onClick={Header.logoutClick}>Logout</h3>
+        <h3 id="username-header" onClick={this.handleClick}>John</h3>
       </header>
     );
   }
