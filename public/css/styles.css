@@ -1,0 +1,45 @@
+/* styles.css */
+
+body {
+  background-image: url('../assets/cloud_bg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+/* index.html */
+#main {}
+.container {}
+
+/* Header.js */
+#header {}
+h1 {}
+h2 {}
+#banner-img {}
+
+/* MainSection.js */
+#main-section{}
+.files-container {
+
+}
+#dropbox-container {
+
+}
+#google-container {
+
+}
+
+/* Dropbox.js */
+.file-list {      /* ul */
+
+}
+
+
+/* Google.js */
+
+
+
+/* Footer.js */
+
+
+
