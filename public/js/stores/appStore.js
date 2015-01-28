@@ -23,13 +23,13 @@ var AppStore = assign({}, EventEmitter.prototype, {
     return {
       // FIXME: The use of an object for this return statement is causing an error... 
       // _username,
-      _dropboxFileList,
-      _googleFileList
+      dropboxFileList: _dropboxFileList,
+      googleFileList: _googleFileList
     };
   },
 
   getUsername: function() {
-    return { _username };
+    return { username: _username };
   },
 
   updateFileLists: function(data) {
