@@ -4,6 +4,7 @@ var google = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 var secrets = require('./secrets/drive.secret');
 var Promise = require('bluebird');
+var jsonSerialize = require('json-serialize');
 var oauth2Client = new OAuth2(secrets.CLIENT_ID, secrets.CLIENT_SECRET, secrets.REDIRECT_URL);
 
 
@@ -38,19 +39,30 @@ driveRouter.get('/callback', function(req, res){
 	var code = req.query.code
 	oauth2Client.getToken(code, function(error, tokens) {
 		if (error) {res.send(error)};
-		var accessToken = tokens.access_token;
-		var refreshToken = tokens.refresh_token;
+		// var accessToken = tokens.access_token;
+		// var refreshToken = tokens.refresh_token;
+
+		var accessAndRefreshTokens = {
+			accessToken: tokens.access_token,
+			refreshToken: tokens.refresh_token
+		};
+
+		var serializedTokens = jsonSerialize.serialize(accessAndRefreshTokens);
+
+	  res.send(serializedTokens);
+		// var callback = function(error, tokens) {
+		// 	res.send(token);
+		// }
+
+		// passport.serializeUser(function(tokens, callback) {
+		// 	callback(null, tokens);
+		// })
+
+		// res.send(tokens)
 	  // Now tokens contains an access_token and an optional refresh_token. Save them.
 
-	  // res.send({access_token: accessToken, refresh_token: refreshToken})
 
-	  oauth2Client.setCredentials({
-	    access_token: tokens.access_token,
-	    refresh_token: tokens.refresh_token
-	  });
 
-	  // drive.files.list({}, function(a,b) {console.log(b)});
-	  getFiles(req, res);
 	});
 })
 
