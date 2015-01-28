@@ -40,7 +40,7 @@ gulp.task('copy', function() {
     // .pipe(gulp.dest('dist'));
   gulp.src('public/css/*.css')
     .pipe(gulp.dest('dist/css'));
-  gulp.src('public/assets/*')
+  gulp.src('public/assets/*.*')
     .pipe(gulp.dest('dist/assets'))
 });
 
@@ -63,7 +63,7 @@ gulp.task('copy-stock', function() {
     .pipe(gulp.dest('dist/stock'));  
   gulp.src('public/css/*.css')
     .pipe(gulp.dest('dist/stock/css'));  
-  gulp.src('public/assets/*')
+  gulp.src('public/assets/*.*')
     .pipe(gulp.dest('dist/stock/assets'))
 
 });
