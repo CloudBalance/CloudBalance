@@ -1,8 +1,28 @@
+/*** @jsx React.DOM */
 var React = require('react');
+// var AppStore = require('../stores/appStore');
 var AppActions = require('../actions/appActions');
 // var TodoTextInput = require('./TodoTextInput.react');
 
+
+// FIXME: I want to set the state with the AppStore, but using objects in its return statement is both required and is causing errors...
+// var getUsername = function() {
+  // return {
+    // username: AppStore.getUsername()
+  // };
+// };
+
+
 var Header = React.createClass({
+
+  // getInitialState: function() {
+  //   return AppStore.getUsername();
+  // },
+
+  handleClick: function() {
+    AppActions.addItem('this is the item');
+  },
+
 
   /**
    * @return {object}
@@ -10,9 +30,9 @@ var Header = React.createClass({
   render: function() {
     return (
       <header id="header">
-        <div id="banner-img"></div>
         <h1>CloudBalance</h1>
-        <h2>{this.state.username}</h2>
+        <h2 onClick={this.handleClick}>John</h2>
+        <div id="banner-img"></div>
         <h2>Logout</h2>
       </header>
     );
@@ -20,5 +40,8 @@ var Header = React.createClass({
 
 
 });
+
+    // This is breaking it right now:
+    // <h2>{this.state.username}</h2>
 
 module.exports = Header;

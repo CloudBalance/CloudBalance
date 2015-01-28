@@ -1,8 +1,9 @@
 /** @jsx React.DOM */
 var React = require('react');
 var AppActions = require('../actions/appActions.js');
-var Dropbox = require('./Dropbox.js');
-var Google = require('./Google.js');
+// FIXME: Need these two below, but commented out for rendering layout until debugged
+// var Dropbox = require('./Dropbox.js');
+// var Google = require('./Google.js');
 
 var MainSection = React.createClass({
 
@@ -41,7 +42,7 @@ var MainSection = React.createClass({
         success: function(data) {
           // What does this return?
           console.log(data);
-          // Need to update the Store
+          // FIXME: Need to update the Store
           this.setState({data: data});
         }.bind(this),
         error: function(xhr, status, err) {
@@ -52,18 +53,38 @@ var MainSection = React.createClass({
     
   },
 
+  // This render method is MORE complete:
+  // render: function(){
+  //   return (
+  //     <div id="main-section">
+  //       <Dropbox
+  //         className="files-container"
+  //         id="dropbox-container"
+  //         dropboxFileList={this.props.allFiles.dropboxFileList} />
+  //       <Google
+  //         className="files-container"
+  //         id="google-container"
+  //         googleFileList={this.props.allFiles.googleFileList} />
+  //     </div>
+  //   );
+  // }
+
+  // Using this version for now:
   render: function(){
     return (
       <div id="main-section">
-        <Dropbox
-          dropboxFileList={this.props.allFiles.dropboxFileList} />
-        <Google
-          class="files-container"
-          id="google-container"
-          googleFileList={this.props.allFiles.googleFileList} />
+        <div
+          className="files-container"
+          id="dropbox-container" >
+        </div>
+        <div
+          className="files-container"
+          id="google-container" >
+        </div>
       </div>
     );
   }
+
 });
 
 module.exports = MainSection;

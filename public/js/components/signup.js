@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-// var Footer = require('./Footer');
+var Footer = require('./Footer');
 var React = require('react');
 // var AppStore = require('../stores/appStore');
 
@@ -20,7 +20,7 @@ var Login = React.createClass({
           password: this.refs.password.getDOMNode().value
         },
         success: function(data) {
-          console.log(Login submitted);
+          console.log('Signup submitted');
           // Do we keep any login info in the store?
         }.bind(this),
         error: function(xhr, status, err) {
@@ -36,7 +36,7 @@ var Login = React.createClass({
   render: function() {
     return (
       <div>
-        <div className="login-box" />
+        <div className="login-box" >
           <h3>Log in to CloudBalance</h3>
           <form>
             <label>Username:</label>

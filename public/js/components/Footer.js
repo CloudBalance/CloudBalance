@@ -14,12 +14,12 @@ var Header = React.createClass({
       <header id="header">
         <div id="banner-img"></div>
         <h1>CloudBalance</h1>
-        <h2>{this.state.username}</h2>
         <h2>Logout</h2>
       </header>
     );
   }
 
+        // <h2>{this.state.username}</h2>
 
 });
 

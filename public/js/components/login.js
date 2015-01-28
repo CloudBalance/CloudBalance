@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-// var Footer = require('./Footer');
+var Footer = require('./Footer');
 var React = require('react');
 // var AppStore = require('../stores/appStore');
 
@@ -20,7 +20,7 @@ var Login = React.createClass({
           password: this.refs.password.getDOMNode().value
         },
         success: function(data) {
-          console.log(Login submitted);
+          console.log('Login submitted');
           // Do we keep any login info in the store?
           console.log(data);
           // clear the inputs -- like so?
@@ -38,13 +38,11 @@ var Login = React.createClass({
     }
   }, 
 
-
-
   /**  @return {object}  */
   render: function() {
     return (
       <div>
-        <div className="login-box" />
+        <div className="login-box">
           <h3>Log in to CloudBalance</h3>
           <form>
             <label>Username:</label>
@@ -54,14 +52,14 @@ var Login = React.createClass({
               ref="username" 
               id="username"
               value={this.state.username}
-              autofocus={true}    />
+              autofocus={true}  />
             <label>Password:</label>
             <input 
               type="text" 
               className="textInput" 
               ref="password" 
               id="password" 
-              value={this.state.password}    />
+              value={this.state.password} />
             <button type="submit" onClick={Login.submitLogin} >Submit</button>
           </form>
         </div>

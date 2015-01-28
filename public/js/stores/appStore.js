@@ -10,6 +10,7 @@ var CHANGE_EVENT = 'change';
 var _dropboxFileList = {};
 var _googleFileList = {};
 
+var _username = 'John';
 
 var AppStore = assign({}, EventEmitter.prototype, {
   // adding methods to the EventEmitter
@@ -20,9 +21,15 @@ var AppStore = assign({}, EventEmitter.prototype, {
    */
   getAll: function() {
     return {
+      // FIXME: The use of an object for this return statement is causing an error... 
+      // _username,
       _dropboxFileList,
       _googleFileList
     };
+  },
+
+  getUsername: function() {
+    return { _username };
   },
 
   updateFileLists: function(data) {

@@ -5,14 +5,13 @@
 
 
 var APP = require('./components/app.js');
-// var CloudBalanceApp = require('./components/CloudBalanceApp.react');
 var React = require('react');
 window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
 
 // var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
 // CloudBalanceWebAPIUtils.getAllData();
 
-React.render(
+React.renderComponent(
   <APP />,
   document.getElementById('main')
 );
