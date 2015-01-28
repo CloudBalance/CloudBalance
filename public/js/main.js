@@ -9,11 +9,7 @@ var APP = require('./components/app.js');
 var React = require('react');
 window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
 
-// var CloudBalanceExampleData = require('./CloudBalanceExampleData');
 // var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
-
-// CloudBalanceExampleData.init(); // load example data into localstorage
-
 // CloudBalanceWebAPIUtils.getAllData();
 
 React.render(
