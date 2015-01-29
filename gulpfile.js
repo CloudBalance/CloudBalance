@@ -6,12 +6,18 @@ var gulp = require('gulp');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
+// var clean = require('gulp-clean')
 
 gulp.task('lint', function() {
   return gulp.src('./lib/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
+
+// gulp.task('clean', function(){        // maybe should be using rimraf or del instead of clean
+//   return gulp.src(['dist/*'], {read:false})
+//   .pipe(clean());
+// });
 
 gulp.task('browserify', function() {
   gulp.src('public/js/main.js')
@@ -41,7 +47,10 @@ gulp.task('copy', function() {
   gulp.src('public/css/*.css')
     .pipe(gulp.dest('dist/css'));
   gulp.src('public/assets/*.*')
-    .pipe(gulp.dest('dist/assets'))
+    .pipe(gulp.dest('dist/assets'));
+  // gulp.src('public/bower_components/**/dist/*.min.js')    //, { base: './**/*' }) 
+    // .pipe(gulp.dest('dist/bower_components'));      
+      // No variations are putting the bower component files into the right place right now - moved manually
 });
 
 gulp.task('default', ['lint', 'browserify', 'copy']);
@@ -49,6 +58,10 @@ gulp.task('default', ['lint', 'browserify', 'copy']);
 gulp.task('watch', function() {
   gulp.watch('public/**/*.*', ['default']);
 });
+
+
+
+
 
 
 
