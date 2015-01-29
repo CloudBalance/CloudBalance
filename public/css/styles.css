@@ -32,17 +32,14 @@ body {
   background-image: url('../assets/banner-img-100.jpg');
   height: 100px;
   width: 100px;
-  position: fixed;
-  top: 5px;
-  left: 5px;
+  float: left;
+  margin: 5px;
   border-radius: 5px;
 }
 
 #title-header {
   display: inline-block;
-  /*margin-top: 0px;*/
   margin: 10px;
-  margin-left: 110px;
 }
 
 #username-header {        
@@ -59,27 +56,65 @@ body {
 h1 {}
 h2 {}
 
-/* MainSection.js */
-#main-section{}
+/* MainSection.js / Dropbox.js/Google.js */
+#main-section{}       
+
 .files-container {
-
+  background-image: url('../assets/transpBlack50.png');
+  border-radius: 5px;
+  width: 45.5%;
+  height: 450px;
 }
-#dropbox-container {
 
+/* Search.js */
+#search-container {
+  text-align: center;
+  margin-top: 8px;
+  padding: 2px;
 }
-#google-container {
 
+#search-box {
+  margin-right: 8px;
+  width: 300px;
 }
+
+
 
 /* Dropbox.js */
 .file-list {      /* ul */
 
 }
-
+#dropbox-container {
+  float: left;
+  margin: 10px 1.5% 10px 3%;
+}
+.service-title {
+  margin: 4px 0 4px 8px;
+  color: white;
+}
 
 /* Google.js */
+#google-container {
+  float: right;
+  margin: 10px 3% 10px 1.5%;
+}
 
-
+/* File.js */
+.file-container {  
+  text-align: center;
+  height: 80px;
+  width: 65px;
+}
+.file-icon {
+  background-image: url('../assets/folder-icon-65.png');  /*REPLACE this when image is working from React*/
+  height: 65px;
+  width: 65px;
+  /*size: 65px;*/
+}
+.fileName {
+  font-size: 10px;
+  color: white;
+}
 
 /* Footer.js */
 
