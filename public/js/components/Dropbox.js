@@ -2,10 +2,13 @@
 var React = require('react');
 var AppActions = require('../actions/appActions');
 var AppStore = require('../stores/appStore');
+var File = require('./File');
+
+
 var getStateFromStore = function() {
   return {
     dropboxFileList: AppStore.getAll().dropboxFileList
-  }
+  };
 };
 
 var getFile = function(id) {
@@ -31,16 +34,22 @@ var Dropbox = React.createClass({
     AppStore.removeChangeListener(this._onChange);
   },
 
+    // Need this, but throwing errors...
+      // var fileListItems = this.state.googleFileList.map(function(item) {
+      //   return <li><File data={item} /></li>;
+      // });
   render:function(){
-    var fileListItems = this.state.dropboxFileList.map(getFile);
     return (
       <div className="files-container" id="dropbox-container">
+        <h3 className='service-title'>Dropbox</h3>
         <ul className="file-list">
-          {fileListItems}
+          <File fileIcon='./asset/folder-icon-65.png' fileType='folder' fileName='example-folder' />
         </ul>
       </div>
     );
   },
+          // This should go inside the ul, but throwing error right now
+          // {fileListItems}
 
   /**
    * Event handler for 'change' events coming from the AppStore
