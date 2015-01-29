@@ -1,15 +1,34 @@
 /** @jsx React.DOM */
 var React = require('react');
+var Header = require('./Header');
+var Footer = require('./Footer');
+var MainSection = require('./MainSection');
+var AppStore = require('../stores/appStore');
+
 var AppActions = require('../actions/appActions.js');
+
+
+var getAppState = function() {
+  return {
+    allFiles: AppStore.getAll()
+  };
+};
+
 
 var APP =
   React.createClass({
-    handleClick: function() {
-      AppActions.addItem('this is the item');
+
+    getInitialState: function() {
+      return getAppState();
     },
+
     render:function(){
       return (
-        <h1 onClick={this.handleClick}>MY FLUX APP - builds while gulp is watching</h1>
+        <div>
+          <Header />
+          <MainSection />
+          <Footer />
+        </div>
       )
     }
   });

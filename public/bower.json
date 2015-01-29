@@ -1,0 +1,15 @@
+{
+  "name": "cloudbalance",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "oauth-js": "~0.4.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
