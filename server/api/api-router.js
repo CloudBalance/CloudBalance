@@ -2,6 +2,13 @@ var express = require('express');
 
 var apiRouter = express.Router();
 
+
+/** 
+drive api router is expecting a 'req.body.driveAccessToken' or a '
+req.body.driveRefreshToken' to the '/driveFiles' route as specified in 
+externalApi/drive/drive-api-v2.js
+*/
+
 apiRouter.get('/1/getAllFiles', function(req,res) {
   //From Client: nothing
   //To Client: two file lists to (one for each service)

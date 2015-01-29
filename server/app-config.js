@@ -1,6 +1,6 @@
 var express = require('express');
 var authRouter = require('./auth/auth-router.js');
-var apiRouter = require('./api/api-router.js');
+// var apiRouter = require('./api/api-router.js');
 var morgan = require('morgan');
 
 // var handler = require('./lib/request-handler');
@@ -14,6 +14,6 @@ app.use(morgan('combined'));
 app.use('/auth', authRouter);
 
 //router for handling api calls to our server
-app.use('/api', apiRouter);
+// app.use('/api', apiRouter);
 
 module.exports = app;
