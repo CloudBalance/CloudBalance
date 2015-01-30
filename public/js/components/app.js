@@ -32,9 +32,11 @@ var App = React.createClass({
    * @return {object}
    */
   render: function() {
+    //TODO: check if this is the correct syntax for this
     return (
       <div id='main-container'>
         <Header />
+        //TODO: make sure we're handling allFiles propertly in MainSection, since it includes two different types of files
         <MainSection
           allFiles={this.state.allFiles} />
         <Footer />
@@ -49,5 +51,7 @@ var App = React.createClass({
     this.setState(getAppState());
   }
 });
+
+//TODO: investigate if we need a React.render() function here to attach this to the DOM. 
 
 module.exports = App;

@@ -10,6 +10,8 @@ var _promises = [];
 
 // Create Dispatcher class (pseudoclassical)
 var Dispatcher = function() {};
+//assign just adds the properties of the 2nd, 3rd, and larger arguments to the first object
+//then returns the first object
 Dispatcher.prototype = assign({}, Dispatcher.prototype, {
 
   /** Register a Store's callback so that it may be invoked by an action.
