@@ -14,7 +14,9 @@
     "express": "^4.0.0",
     "express-partials": "^0.2.0",
     "fs": "0.0.2",
+    "googleapis": "^1.1.1",
     "http": "0.0.0",
+    "json-serialize": "^1.1.2",
     "keymirror": "^0.1.1",
     "mongoose": "~3.8.8",
     "morgan": "^1.5.1",
@@ -32,4 +34,3 @@
     "reactify": "^0.13.1"
   }
 }
-

@@ -64,11 +64,6 @@ driveRouter.get('/callback', function(req, res){
 
 
 	});
-})
-
-
-
-
-
+});
 
 module.exports = driveRouter;
