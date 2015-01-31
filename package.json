@@ -13,6 +13,7 @@
     "es6-promise": "^2.0.1",
     "express": "^4.0.0",
     "express-partials": "^0.2.0",
+    "express-static": "^1.0.3",
     "fs": "0.0.2",
     "googleapis": "^1.1.1",
     "http": "0.0.0",
