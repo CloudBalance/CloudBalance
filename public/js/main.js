@@ -5,7 +5,7 @@
 // $(document).ready(function() {
   /*** @jsx React.DOM */
     // So build process knows to convert from JSX to JS - needed???
-    // debugger;
+
   // This file bootstraps the entire application.
   console.log('this is running');
 
