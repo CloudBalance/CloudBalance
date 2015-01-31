@@ -35,6 +35,9 @@ var Google = React.createClass({
     AppStore.removeChangeListener(this._onChange);
   },
 
+  //I'm not sure what we're trying to accomplish with the code below. 
+  //try wrapping what is being returned in parens
+  //where do we define File?
   // Need this, but throwing errors...
     // var fileListItems = this.state.googleFileList.map(function(item) {
     //   return <li><File data={item} /></li>;
