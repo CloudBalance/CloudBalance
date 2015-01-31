@@ -34,13 +34,13 @@ var AppStore = assign({}, EventEmitter.prototype, {
    * @return {object}
    */
   getAll: function() {
-    return {
+    return ({
       // FIXME: The use of an object for this return statement is causing an error... 
       // might be as simple as wrapping that object in ()
       // _username,
       dropboxFileList: _dropboxFileList,
       googleFileList: _googleFileList
-    };
+    });
   },
 
   getUsername: function() {
@@ -104,6 +104,4 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
 
 module.exports = AppStore;
-
-
 

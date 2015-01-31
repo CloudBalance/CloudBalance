@@ -21,12 +21,15 @@ var MainSection = React.createClass({
   },
 
   // Ajax calls are not really React methods, so they're supposed to go into the statics object (below). This difference doesn't do much, but might be better for performance, complies with the React documentation, AND causes you to have to call these methods in the following format: MainSection.getAllFiles()
+  //TODO: confirm syntax. why not MainSection.statics.getAllFiles() ?
   statics: {    
     getAllFiles: function () {
       $.ajax({
+        //likely api/1/...
         url: '1/getAllFiles',
         dataType: 'json',
         success: function(data) {
+          //TODO: make sure data has those properties
           AppActions.updateGoogleFileList(data.googleFileList);
           AppActions.updateDropboxFileList(data.dropboxFileList);
           this.setState({allFiles: data});      // This should be redundant with the getInitialState call - kind of the belt-and-suspenders approach
