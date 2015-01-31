@@ -1,18 +1,26 @@
+/**
+ * @jsx React.DOM
+ */
 
-/*** @jsx React.DOM */
-  // So build process knows to convert from JSX to JS - needed???
+// $(document).ready(function() {
+  /*** @jsx React.DOM */
+    // So build process knows to convert from JSX to JS - needed???
+    debugger;
+  // This file bootstraps the entire application.
+  console.log('this is running');
 
-// This file bootstraps the entire application.
+  var APP = require('./components/app.js');
+  var React = require('react');
+  // window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
+  // var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
+  // CloudBalanceWebAPIUtils.getAllData();
 
-var APP = require('./components/app.js');
-var React = require('react');
-window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
-
-// var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
-// CloudBalanceWebAPIUtils.getAllData();
-
-React.render(
-  <APP />,
-  document.getElementById('main')
-);
- 
+  React.render(
+    <h1>hi there!</h1>,
+    document.body
+    // <APP />,
+    // document.getElementById('main')
+  );
+   
+  
+// });
