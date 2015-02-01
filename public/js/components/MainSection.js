@@ -8,40 +8,56 @@ var Google = require('./Google.js');
 
 var MainSection = React.createClass({
 
+
+  //TODO: we need to figure out where this goes in the architecture. does it go here, in the store, in app.js where we create a new <MainSection /> or somewhere else? 
+  getAllFiles: function() {
+    $.ajax({
+      url: 'api/1/getAllFiles',
+      dataType: 'json',
+      success: function(data) {
+        this.setState({allFiles: data});
+        this.setState({googleFileList: data[0]});
+        console.log('this.state:');
+        console.log(this.state);
+        //these two functions don't exist yet
+        // AppActions.updateGoogleFileList(data.googleFileList);
+        // AppActions.updateDropboxFileList(data.dropboxFileList);
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error('api/1/getAllFiles', status, err.toString());
+      }.bind(this)
+    });
+  },
+
   getInitialState: function() {
     // return {allFiles: MainSection.getAllFiles()};
     // return { allFiles: {dropboxFileList: {}, googleFileList: {} } };
-    return {allFiles: this.props.allFiles}
+    this.getAllFiles();
+    //FIXME: we don't have anything being passed into the props, so we're not getting any data here. That's why I added in getAlLFiles() above, which is clearly a hack.
+    return {allFiles: this.props.allFiles, googleFileList: this.props.allFiles[0], dropboxFileList: this.props.allFiles[1]}
 
   },
 
-// This might be useful if it would load the jQuery properly/fast enough:
+// This might be useful if it would load the jQuery properly/fast enough
+// i wrapped the main.js inside a document.ready statement, so we know jquery has loaded
   componentDidMount: function() {
-    MainSection.getAllFiles();
+    //the ajax call should be here to make sure it has access to 'this' and state and props
+    this.getAllFiles();
+  },
+
+  displayFileList: function() {
+
   },
 
   // Ajax calls are not really React methods, so they're supposed to go into the statics object (below). This difference doesn't do much, but might be better for performance, complies with the React documentation, AND causes you to have to call these methods in the following format: MainSection.getAllFiles()
+  //TODO: confirm syntax. why not MainSection.statics.getAllFiles() ?
   statics: {    
-    getAllFiles: function () {
-      $.ajax({
-        url: '1/getAllFiles',
-        dataType: 'json',
-        success: function(data) {
-          AppActions.updateGoogleFileList(data.googleFileList);
-          AppActions.updateDropboxFileList(data.dropboxFileList);
-          this.setState({allFiles: data});      // This should be redundant with the getInitialState call - kind of the belt-and-suspenders approach
-        }.bind(this),
-        error: function(xhr, status, err) {
-          console.error('1/getAllFiles', status, err.toString());
-        }.bind(this)
-      });
-    },
 
     // Need to set the data object attributes (using methods in File class and listeners here?)
         // Luckily this method is accessible from the File component
     moveFiles: function(data) {
       $.ajax({
-        url: '1/moveFiles',
+        url: 'api/1/moveFiles',
         dataType: 'json',
         type: 'POST',
         data: {
@@ -65,13 +81,16 @@ var MainSection = React.createClass({
   },
 
   render: function(){
+    console.log('this.state within MainSection render');
+    console.log(this.state);
+    console.log(this.state.googleFileList);
     return (
       <div id="main-section">
         <Search />
         <Dropbox
-          dropboxFileList={this.props.allFiles.dropboxFileList} />
+          dropboxFileList={this.state.allFiles.dropboxFileList} />
         <Google
-          googleFileList={this.props.allFiles.googleFileList} />
+          googleFileList={this.state.googleFileList} />
       </div>
     );
   }

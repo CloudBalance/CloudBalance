@@ -13,14 +13,18 @@
     "es6-promise": "^2.0.1",
     "express": "^4.0.0",
     "express-partials": "^0.2.0",
+    "express-static": "^1.0.3",
     "fs": "0.0.2",
+    "googleapis": "^1.1.1",
     "http": "0.0.0",
+    "json-serialize": "^1.1.2",
     "keymirror": "^0.1.1",
     "mongoose": "~3.8.8",
     "morgan": "^1.5.1",
     "object-assign": "^2.0.0",
     "passport": ">= 0.0.0",
-    "passport-google-oauth2": ">= 0.0.0"
+    "passport-google-oauth2": ">= 0.0.0",
+    "react-tools": "^0.12.2"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
@@ -32,4 +36,3 @@
     "reactify": "^0.13.1"
   }
 }
-

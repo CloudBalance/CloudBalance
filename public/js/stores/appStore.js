@@ -14,6 +14,8 @@ var _googleFileList = {};
 var _username = 'John';
 
 // DOUBLECHECK: I think this goes here
+// FIXME: we should just re-initialize the state to empty when the user starts the app
+// that's something we should be able to do inside of getInitialState
 var _logout = function() {
   // clear out the store I guess
   _dropboxFileList = {}
@@ -22,6 +24,8 @@ var _logout = function() {
   // AppStore.state.googleFileList = {};
 }
 
+//assign just adds the properties of the 2nd, 3rd, and larger arguments to the first object
+//then returns the first object
 var AppStore = assign({}, EventEmitter.prototype, {
   // adding methods to the EventEmitter
 
@@ -30,12 +34,13 @@ var AppStore = assign({}, EventEmitter.prototype, {
    * @return {object}
    */
   getAll: function() {
-    return {
+    return ({
       // FIXME: The use of an object for this return statement is causing an error... 
+      // might be as simple as wrapping that object in ()
       // _username,
       dropboxFileList: _dropboxFileList,
       googleFileList: _googleFileList
-    };
+    });
   },
 
   getUsername: function() {
@@ -50,9 +55,11 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
   emitChange: function() {
     this.emit(CHANGE_EVENT);
-      // CHANGE_EVENT is just a string ('change')
+      // currently, CHANGE_EVENT is just a string ('change'), set on line 8
   },
+  
 
+  //addChangeListener seems like it's never used. is this redundant with registering tasks below?
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
@@ -97,6 +104,4 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
 
 module.exports = AppStore;
-
-
 
