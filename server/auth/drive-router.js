@@ -19,6 +19,7 @@ var scopes = [
 	'https://www.googleapis.com/auth/userinfo.profile'
 ];
 
+
 var url = oauth2Client.generateAuthUrl({
   access_type: 'offline', // 'online' (default) or 'offline' (gets refresh_token)
   approval_prompt: 'force',
@@ -41,13 +42,9 @@ driveRouter.get('/callback', function(req, res){
 			refreshToken: tokens.refresh_token
 		};
 
-		var driveToken = jwt.encode(accessAndRefreshTokens, secrets.JWT_SECRET);
 
-		// console.log('THIS IS THE DRIVE TOKEN ', driveToken);
-		// var decodedToken = jwt.decode(driveToken, secrets.JWT_SECRET);
-		// console.log('THIS IS THE DECODED DRIVE TOKEN ', decodedToken);
-
-	  res.send(driveToken);
+	  res.send(authHelper.tokenSaverMaker('drive', accessAndRefreshTokens, '/auth/dropbox/'));
+	  // res.sendFile(__dirname +'/');
 	});
 });
 
