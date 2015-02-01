@@ -8,8 +8,8 @@ $(document).ready(function() {
   console.log('this is running');
 
   var APP = require('./components/app.js');
-  var React = require('reactFail');
-  // window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
+  var React = require('react');
+  window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
   // var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
   // CloudBalanceWebAPIUtils.getAllData();
 
