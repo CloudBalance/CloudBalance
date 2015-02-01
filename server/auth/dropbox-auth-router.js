@@ -4,10 +4,7 @@ var https = require('https');
 var querystring = require('querystring');
 var bPromise = require('bluebird');
 var dropboxAPI = require('../externalAPI/dropbox/dropbox-api-v1.js');
-<<<<<<< HEAD:server/auth/dropbox-auth-router.js
 var authHelper = require('./auth-helper.js');
-=======
->>>>>>> finished Dropbox Directory Retrieval:server/auth/dropbox-auth-router.js
 
 var userAuthCode;
 var userAccessToken;
@@ -85,7 +82,6 @@ dropboxRouter.get('/callback', function dropboxCallback(req,res) {
 
 //return list of files
 dropboxRouter.get('/listfiles', function test(req, res) {
-<<<<<<< HEAD:server/auth/dropbox-auth-router.js
   // var token;
   // getToken(userAuthCode)
   //   .then(function(data) {
@@ -94,25 +90,11 @@ dropboxRouter.get('/listfiles', function test(req, res) {
   //   })
     // .then(function() {
       dropboxAPI.getFileDirectories('/', -1, userAccessToken.access_token)
-=======
-  var token;
-  getToken(userAuthCode)
-    .then(function(data) {
-      token = JSON.parse(data);
-      userAccessToken = token;
-    })
-    .then(function() {
-      dropboxAPI.getFileDirectories('/Workouts', 2, userAccessToken.access_token)
->>>>>>> finished Dropbox Directory Retrieval:server/auth/dropbox-auth-router.js
         .then(function(data) {
           res.set('Content-Type', 'application/json')
           .status(200).end(JSON.stringify(data));
         });
-<<<<<<< HEAD:server/auth/dropbox-auth-router.js
     // });
-=======
-    });
->>>>>>> finished Dropbox Directory Retrieval:server/auth/dropbox-auth-router.js
 });
 
 module.exports = dropboxRouter;

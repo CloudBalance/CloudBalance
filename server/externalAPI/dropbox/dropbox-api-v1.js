@@ -73,17 +73,9 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
   var all = depth === -1 ? true : false;
   var rootDirectory = [];
   var unresolved = 0;
-<<<<<<< HEAD
 
   return new bPromise(function directoriesPromise(resolve, reject) {
 
-=======
-  var queries = [];
-
-  return new bPromise(function directoriesPromise(resolve, reject) {
-
-
->>>>>>> finished Dropbox Directory Retrieval
     //returns a function that parses the data
     var makeDataParser = function makeDataParser(directory, depth) {
 
@@ -94,17 +86,11 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
         if(contents) {
           contents.forEach(function(child) {
             var fileObject = {
-<<<<<<< HEAD
               'fileName' : Path.basename(child.path),
               'fileId' : child.path,
               'filePath' : child.path,
               'fileType' : child.is_dir ? 'folder' : 'file',
               'fileIcon' : './assets/48x48/' + child.icon + '.gif',
-=======
-              'name' : Path.basename(child.path),
-              'path' : child.path,
-              'type' : child.is_dir ? 'folder' : 'file',
->>>>>>> finished Dropbox Directory Retrieval
               'children' : child.is_dir ? [] : undefined
             };
 
@@ -119,21 +105,14 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
 
         //check to see if all requests have been resolved
         unresolved--;
-<<<<<<< HEAD
         if(unresolved === 0) {
-=======
-        if(unresolved === 0 && !queries.length) {
->>>>>>> finished Dropbox Directory Retrieval
           resolve(rootDirectory);
         }
       };
 
     };
 
-<<<<<<< HEAD
     //simple rejection function
-=======
->>>>>>> finished Dropbox Directory Retrieval
     var rejectData = function rejectData(err) {
       reject(err);
     };
@@ -150,11 +129,8 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
   });
 };
 
-<<<<<<< HEAD
 // dropboxAPI.removeFile = function removeFile(path) {
 //
 // };
 
-=======
->>>>>>> finished Dropbox Directory Retrieval
 module.exports = dropboxAPI;
