@@ -5,7 +5,6 @@
 
 $(document).ready(function() {
   // This file bootstraps the entire application.
-  console.log('this is running');
 
   var APP = require('./components/app.js');
   var React = require('react');

@@ -2,7 +2,6 @@ var app = require('./app-config.js');
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
-var morgan = require('morgan');
 
 
 var port = 8000;
