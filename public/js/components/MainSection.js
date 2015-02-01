@@ -11,21 +11,17 @@ var MainSection = React.createClass({
   getInitialState: function() {
     // return {allFiles: MainSection.getAllFiles()};
     // return { allFiles: {dropboxFileList: {}, googleFileList: {} } };
-    return {allFiles: this.props.allFiles}
+    return {allFiles: this.props.allFiles, googleFileList: this.props.allFiles[0], dropboxFileList: this.props.allFiles[1]}
 
   },
 
-// This might be useful if it would load the jQuery properly/fast enough
-// i wrapped the main.js inside a document.ready statement, so we know jquery has loaded
-  componentDidMount: function() {
-    //the ajax call should be here to make sure it has access to 'this' and state and props
+  getAllFiles: function() {
     $.ajax({
       url: 'api/1/getAllFiles',
       dataType: 'json',
       success: function(data) {
-        //TODO: make sure data has those properties
-        console.log('this', this);
-        this.setState({allFiles: data});      // This should be redundant with the getInitialState call - kind of the belt-and-suspenders approach
+        this.setState({allFiles: data});
+        this.setState({googleFileList: data[0]});
         console.log('this.state:');
         console.log(this.state);
         //these two functions don't exist yet
@@ -33,9 +29,20 @@ var MainSection = React.createClass({
         // AppActions.updateDropboxFileList(data.dropboxFileList);
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error('1/getAllFiles', status, err.toString());
+        console.error('api/1/getAllFiles', status, err.toString());
       }.bind(this)
     });
+  },
+
+// This might be useful if it would load the jQuery properly/fast enough
+// i wrapped the main.js inside a document.ready statement, so we know jquery has loaded
+  componentDidMount: function() {
+    //the ajax call should be here to make sure it has access to 'this' and state and props
+    this.getAllFiles();
+  },
+
+  displayFileList: function() {
+
   },
 
   // Ajax calls are not really React methods, so they're supposed to go into the statics object (below). This difference doesn't do much, but might be better for performance, complies with the React documentation, AND causes you to have to call these methods in the following format: MainSection.getAllFiles()
@@ -74,9 +81,9 @@ var MainSection = React.createClass({
       <div id="main-section">
         <Search />
         <Dropbox
-          dropboxFileList={this.props.allFiles.dropboxFileList} />
+          dropboxFileList={this.state.allFiles.dropboxFileList} />
         <Google
-          googleFileList={this.props.allFiles.googleFileList} />
+          googleFileList={this.state.allFiles.googleFileList} />
       </div>
     );
   }
