@@ -14,10 +14,8 @@ $(document).ready(function() {
   // CloudBalanceWebAPIUtils.getAllData();
 
   React.render(
-    <h1>hi there!</h1>,
-    document.body
-    // <APP />,
-    // document.getElementById('main')
+    <APP />,
+    document.getElementById('main')
   );
   
 });

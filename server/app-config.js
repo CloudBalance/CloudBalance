@@ -1,6 +1,6 @@
 var express = require('express');
 var authRouter = require('./auth/auth-router.js');
-// var apiRouter = require('./api/api-router.js');
+var apiRouter = require('./api/api-router.js');
 var morgan = require('morgan');
 var path = require('path');
 
@@ -17,6 +17,6 @@ app.use('/auth', authRouter);
 app.use(express.static(path.join(__dirname + '/../dist'))); 
 
 //router for handling api calls to our server
-// app.use('/api', apiRouter);
+app.use('/api', apiRouter);
 
 module.exports = app;

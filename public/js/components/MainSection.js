@@ -26,7 +26,7 @@ var MainSection = React.createClass({
     getAllFiles: function () {
       $.ajax({
         //likely api/1/...
-        url: '1/getAllFiles',
+        url: 'api/1/getAllFiles',
         dataType: 'json',
         success: function(data) {
           //TODO: make sure data has those properties

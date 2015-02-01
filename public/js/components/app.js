@@ -33,10 +33,10 @@ var App = React.createClass({
    */
   render: function() {
     //TODO: check if this is the correct syntax for this
+    //TODO: make sure we're handling allFiles propertly in MainSection, since it includes two different types of files
     return (
       <div id='main-container'>
         <Header />
-        //TODO: make sure we're handling allFiles propertly in MainSection, since it includes two different types of files
         <MainSection
           allFiles={this.state.allFiles} />
         <Footer />
