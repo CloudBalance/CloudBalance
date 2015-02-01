@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var pathToServerRoot = '../..';
 var jwt = require('jwt-simple');
 var jwtSecret = require(pathToServerRoot + '/auth/secrets/jwt.secret');
@@ -5,6 +6,7 @@ var express = require('express');
 var apiRouter = express.Router();
 var dropboxAPI = require('../../externalAPI/dropbox/dropbox-api-v1.js');
 var driveAPI = require('../../externalAPI/drive/drive-api-v2.js');
+
 /**
 drive api router is expecting a 'req.body.driveAccessToken' or a '
 req.body.driveRefreshToken' to the '/driveFiles' route as specified in
