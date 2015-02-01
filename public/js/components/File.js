@@ -38,7 +38,7 @@ var File = React.createClass({
       <div className='file-container'>
         <div className='file-icon' ></div>
         <div className='fileName'>
-          {this.state.fileName}
+          {this.props.fileName}
         </div> 
       </div>
     );
