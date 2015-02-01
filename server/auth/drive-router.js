@@ -34,22 +34,31 @@ driveRouter.get('/', function(req, res) {
 driveRouter.get('/callback', function(req, res){
 	var code = req.query.code;
 	oauth2Client.getToken(code, function(error, tokens) {
-		if (error) {res.send(error);}
+		if (error) {res.send(error)};
 
-		// var accessAndRefreshTokens = {
-		// 	accessToken: tokens.access_token,
-		// 	refreshToken: tokens.refresh_token
-		// };
+		var accessAndRefreshTokens = {
+			accessToken: tokens.access_token,
+			refreshToken: tokens.refresh_token
+		};
 
+		var driveToken = jwt.encode(accessAndRefreshTokens, secrets.JWT_SECRET);
 
-	  res.send(authHelper.tokenSaverMaker('drive', tokens.access_token, '/auth/dropbox/'));
-	  // res.sendFile(__dirname +'/');
+		// console.log('THIS IS THE DRIVE TOKEN ', driveToken);
+		// var decodedToken = jwt.decode(driveToken, secrets.JWT_SECRET);
+		// console.log('THIS IS THE DECODED DRIVE TOKEN ', decodedToken);
+
+	  res.send(driveToken);
 	});
 });
+
 
 
 driveRouter.get('/index', function(req, res){
 	res.sendFile(__dirname +'/');
 });
+
+
+
+
 
 module.exports = driveRouter;
