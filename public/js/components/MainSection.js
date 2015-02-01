@@ -8,13 +8,8 @@ var Google = require('./Google.js');
 
 var MainSection = React.createClass({
 
-  getInitialState: function() {
-    // return {allFiles: MainSection.getAllFiles()};
-    // return { allFiles: {dropboxFileList: {}, googleFileList: {} } };
-    return {allFiles: this.props.allFiles, googleFileList: this.props.allFiles[0], dropboxFileList: this.props.allFiles[1]}
 
-  },
-
+  //TODO: we need to figure out where this goes in the architecture. does it go here, in the store, in app.js where we create a new <MainSection /> or somewhere else? 
   getAllFiles: function() {
     $.ajax({
       url: 'api/1/getAllFiles',
@@ -32,6 +27,15 @@ var MainSection = React.createClass({
         console.error('api/1/getAllFiles', status, err.toString());
       }.bind(this)
     });
+  },
+
+  getInitialState: function() {
+    // return {allFiles: MainSection.getAllFiles()};
+    // return { allFiles: {dropboxFileList: {}, googleFileList: {} } };
+    this.getAllFiles();
+    //FIXME: we don't have anything being passed into the props, so we're not getting any data here. That's why I added in getAlLFiles() above, which is clearly a hack.
+    return {allFiles: this.props.allFiles, googleFileList: this.props.allFiles[0], dropboxFileList: this.props.allFiles[1]}
+
   },
 
 // This might be useful if it would load the jQuery properly/fast enough
@@ -77,13 +81,16 @@ var MainSection = React.createClass({
   },
 
   render: function(){
+    console.log('this.state within MainSection render');
+    console.log(this.state);
+    console.log(this.state.googleFileList);
     return (
       <div id="main-section">
         <Search />
         <Dropbox
           dropboxFileList={this.state.allFiles.dropboxFileList} />
         <Google
-          googleFileList={this.state.allFiles.googleFileList} />
+          googleFileList={this.state.googleFileList} />
       </div>
     );
   }
