@@ -13,15 +13,6 @@ var AppActions = {
     })
   },
 
-  //FIX: I don't think we need this. check out our client/server
-  //api endpoints, but I suspect this is superfluous
-  increaseItem:function(index){
-    AppDispatcher.handleViewAction({
-      actionType: AppConstants.INCREASE_ITEM,
-      index: index
-    })
-  },
-
   clearSearch: function() {
     AppDispatcher.handleViewAction({
       actionType: AppConstants.CLEAR_SEARCH
@@ -35,12 +26,6 @@ var AppActions = {
       data: data
     })
   },
-
-  logout: function() {
-    AppDispatcher.handleViewAction({
-      actionType: AppConstants.LOGOUT
-    });
-  }
 
 };
 
