@@ -18,7 +18,7 @@ var MainSection = React.createClass({
       dropboxFileList: {},
       displayedDropboxFileList: [],
       googleFileList: {},
-      displayedGoogleFileList: []
+      displayedGoogleFileList: [],
       // This last attribute is for search functionality
       filterText: ''
     }

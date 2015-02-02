@@ -1,16 +1,17 @@
 /* styles.css */
 
 
-
 /* index.html */
 body {
   background-image: url('../assets/cloud_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
+ /* padding-bottom: 200px; */    /*Height of footer*/    /*initial: 50px;*/
 }
 
 #main {
+  position: relative;
   width: 100%;
   height: 100%;
   padding: 0px;
@@ -55,9 +56,6 @@ body {
   margin: 25px;
   cursor: pointer;
 }
-
-h1 {}
-h2 {}
 
 /* MainSection.js / Dropbox.js/Google.js */
 #main-section{}       
@@ -120,11 +118,23 @@ h2 {}
 }
 
 /* Footer.js */
-#/*footer {
-  background-color: black;
+#footer {
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*background-color: black;*/
   color: white;
-  height: 50px;
+  height: 200px;  /* 50px;*/
   width: 100%;
-}*/
+  margin: 0px;
+  padding: 5px 20px;
+}
+.profile {
+  margin: 5px 15px;
+  /*diplay: inline;*/
+  float: left;
+}
+.profile-pic {
+  border-radius: 50px;
 
+}
 
