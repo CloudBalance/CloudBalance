@@ -55,7 +55,7 @@ var Header = React.createClass({
         <div id="banner-img"></div>
         <h1 id="title-header">CloudBalance</h1>
         <h3 id="logout-header" onClick={Header.logoutClick}>Logout</h3>
-        <h3 id="username-header">John</h3>
+        <h3 id="username-header">marcus</h3>
       </header>
     );
   }
