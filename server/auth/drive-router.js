@@ -19,6 +19,7 @@ var scopes = [
 	'https://www.googleapis.com/auth/userinfo.profile'
 ];
 
+
 var url = oauth2Client.generateAuthUrl({
   access_type: 'offline', // 'online' (default) or 'offline' (gets refresh_token)
   approval_prompt: 'force',
@@ -34,7 +35,7 @@ driveRouter.get('/', function(req, res) {
 driveRouter.get('/callback', function(req, res){
 	var code = req.query.code;
 	oauth2Client.getToken(code, function(error, tokens) {
-		if (error) {res.send(error);}
+		if (error) {res.send(error)};
 
 		// var accessAndRefreshTokens = {
 		// 	accessToken: tokens.access_token,
@@ -48,8 +49,11 @@ driveRouter.get('/callback', function(req, res){
 });
 
 
+
 driveRouter.get('/index', function(req, res){
 	res.sendFile(__dirname +'/');
 });
+
+
 
 module.exports = driveRouter;
