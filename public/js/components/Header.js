@@ -5,16 +5,13 @@ var AppActions = require('../actions/appActions');
 
 var Header = React.createClass({
 
-
   statics: {
     logoutClick: function() {
-      console.log('heard a logout click');
       window.sessionStorage.removeItem('driveToken');
       window.sessionStorage.removeItem('dropboxToken');
       AppActions.logout();
       window.location.reload();
     }
-    
   },
 
   render: function() {

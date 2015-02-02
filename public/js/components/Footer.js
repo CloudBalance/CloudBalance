@@ -2,19 +2,13 @@
 
 var React = require('react');
 var AppActions = require('../actions/appActions');
-// var TodoTextInput = require('./TodoTextInput.react');
 
 var Footer = React.createClass({
 
   openAbout: function() {
-
+    //placeholder to open an 'About Us' page if you choose to
   },
 
-
-
-  /**
-   * @return {object}
-   */
   render: function() {
     return (
       <footer id="footer">
@@ -39,11 +33,8 @@ var Footer = React.createClass({
           </div>
         </div>
       </footer>
-
     );
   }
-
-        // <h2>{this.state.username}</h2>
 
 });
 

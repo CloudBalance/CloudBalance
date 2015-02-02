@@ -66,8 +66,7 @@ var MainSection = React.createClass({
       dataType: 'json',
       type: 'GET',
       success: function(data) {
-        //this function doesn't exist yet
-        console.log('got data back in mainSection', data);
+
         AppActions.updateFileLists(data);
       }.bind(this),
       error: function(xhr, status, err) {

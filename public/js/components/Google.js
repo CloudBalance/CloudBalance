@@ -7,19 +7,6 @@ var File = require('./File');
 
 var Google = React.createClass({
 
-
-          // var fileListToDisplay = 
-          //   this.props.displayedGoogleFileList.children.map(function(file) {
-          //     return (
-          //       <li>
-          //         <File data={file} />
-          //       </li>
-          //     );
-          //   }
-          // );
-
-          // } else {
-
   render:function(){
 
     console.log('googleFileList[0].children');
