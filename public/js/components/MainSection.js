@@ -19,6 +19,8 @@ var MainSection = React.createClass({
       displayedDropboxFileList: [],
       googleFileList: {},
       displayedGoogleFileList: []
+      // This last attribute is for search functionality
+      filterText: ''
     }
   },
 
@@ -32,9 +34,17 @@ var MainSection = React.createClass({
       displayedDropboxFileList: allFiles.dropboxFileList,
       displayedGoogleFileList: allFiles.googleFileList[0]
     });
-
     this.render();
+    console.log('this.state within mainSection.js');
+    console.log(this.state);
     //TODO: possibly render. see if it automatically updates the views based on changes to state
+  },
+
+
+  handleSearchInput: function(filterText) {
+    this.setState({
+      filterText: filterText
+    });
   },
 
   componentDidMount: function() {
@@ -101,11 +111,14 @@ var MainSection = React.createClass({
   render: function(){
     return (
       <div id="main-section">
-        <Search />
+        <Search 
+          filterText={this.state.filterText}  />
         <Dropbox
-          displayedDropboxFileList={this.state.displayedDropboxFileList} />
+          displayedDropboxFileList={this.state.displayedDropboxFileList} 
+          filterText={this.state.filterText}  />
         <Google
-          displayedGoogleFileList={this.state.displayedGoogleFileList} />
+          displayedGoogleFileList={this.state.displayedGoogleFileList} 
+          filterText={this.state.filterText}  />
       </div>
     );
   }

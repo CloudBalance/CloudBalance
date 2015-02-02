@@ -14,15 +14,22 @@ var Search = React.createClass({
     AppActions.clearSearch();
   },
 
+  handleChange: function() {
+    this.props.onUserInput(this.refs.filterTextInput.getDOMNode().value);
+  },
+
   render:function(){
+
     return (
-      <div id="search-container">
-        <form>
-          <input id="search-box" type="text" placeholder="Search for files..." />
-          <button id="search-button" type="submit">Search</button>
-          <button id="clear-button" onClick={this.handleClear}>Clear</button>
-        </form>
-      </div>
+      <form id="search-container">
+          <input 
+            id="search-box" 
+            type="text" 
+            placeholder="Search for files..." 
+            value={this.props.filterText} 
+            ref="filterTextInput"
+            onChange={this.handleChange}  />
+      </form>
     );
   },
 
