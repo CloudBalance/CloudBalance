@@ -12,7 +12,6 @@ req.body.driveRefreshToken' to the '/driveFiles' route as specified in
 externalApi/drive/drive-api-v2.js
 */
 apiRouter.all('*', function(req, res, next) {
-  console.log('parsing tokens');
   req.tokens = {
     drive : jwt.decode(req.headers.drivetoken, jwtSecret.secret),
     dropbox : jwt.decode(req.headers.dropboxtoken, jwtSecret.secret)
@@ -22,12 +21,8 @@ apiRouter.all('*', function(req, res, next) {
 
 
 apiRouter.get('/getAllFiles', function(req,res) {
-  console.log('getting all files');
-  console.log('tokens:',req.tokens);
   var fileDirectories = {};
   var unresolved = 2;
-
-
 
   driveAPI.getDriveFiles(req.tokens.drive)
     .then(function(data) {
@@ -42,25 +37,13 @@ apiRouter.get('/getAllFiles', function(req,res) {
   dropboxAPI.getFileDirectories('/', -1, req.tokens.dropbox)
   .then(function(data) {
     fileDirectories.dropbox = data;
-    console.log('fileDirectories:', fileDirectories);
     unresolved--;
     if(unresolved === 0) {
       res.set('Content-Type', 'application/json')
       .status(200).end(JSON.stringify(fileDirectories));
     }
   });
-
-  //From Client: nothing
-  //To Client: an array of length two, where the 0th index of the array is the google file list, and the 1st index of the array is the dropbox file list
-    //These file lists will be formatted in the exact same way so the client can just use the same function to render them, no matter which service the file list is coming from
-    //Format: roughly the same as here:
-    //http://stackoverflow.com/questions/11194287/convert-a-directory-structure-in-the-filesystem-to-json-with-node-js
-    //keys:
-      //fileID: set it to null if it doesn't exist
-      //filename
-      //children: an array that holds objects that are either folders or files themselves. this obviously gets recursive
-      //fileIcon
-      //fileLink (though this won't be used by the client for MVP)
+  
 });
 
 apiRouter.get('/moveFiles', function(req,res) {

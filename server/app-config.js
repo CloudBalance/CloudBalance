@@ -10,8 +10,12 @@ var app = express();
 app.use(morgan('combined'));
 
 //router for handling authorization requests
+app.use('/login', function(req, res) {
+  res.redirect('/auth/drive');
+});
+
 app.use('/auth', authRouter);
-app.use(express.static(path.join(__dirname + '/../dist'))); 
+app.use(express.static(path.join(__dirname + '/../dist')));
 
 //router for handling api calls to our server
 app.use('/api', apiRouter);
