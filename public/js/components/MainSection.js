@@ -18,7 +18,7 @@ var MainSection = React.createClass({
       dropboxFileList: {},
       displayedDropboxFileList: [],
       googleFileList: {},
-      displayedGoogleFileList: []
+      displayedGoogleFileList: [],
       // This last attribute is for search functionality
       filterText: ''
     }
@@ -34,10 +34,8 @@ var MainSection = React.createClass({
       displayedDropboxFileList: allFiles.dropboxFileList,
       displayedGoogleFileList: allFiles.googleFileList[0]
     });
+    //We have to force it to render after updating the state to make sure to pass the new data down to the sub components. 
     this.render();
-    console.log('this.state within mainSection.js');
-    console.log(this.state);
-    //TODO: possibly render. see if it automatically updates the views based on changes to state
   },
 
 
