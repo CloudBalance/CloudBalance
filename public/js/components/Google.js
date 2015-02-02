@@ -15,8 +15,6 @@ var Google = React.createClass({
         // This should go inside the ul, instead of just <File />
           // {fileListItems}
   render:function(){
-    console.log('this.props.displayedGoogleFileList within Google.js');
-    console.log(this.props.displayedGoogleFileList.children);
     if(this.props.displayedGoogleFileList.children) {
       var fileListToDisplay = 
         this.props.displayedGoogleFileList.children.map(function(file) {
