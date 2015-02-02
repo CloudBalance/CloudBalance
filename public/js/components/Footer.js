@@ -4,14 +4,19 @@ var React = require('react');
 var AppActions = require('../actions/appActions');
 // var TodoTextInput = require('./TodoTextInput.react');
 
-var Header = React.createClass({
+var Footer = React.createClass({
 
   /**
    * @return {object}
    */
   render: function() {
     return (
-      <div>footer stuff</div>
+      <footer id="footer">
+        <h1 id="title-header">CloudBalance</h1>
+        <p>Made at Hack Reactor... whatever we are supposed to say here...</p>
+        <h3 id="aboutClick" onClick={this.openAbout}>About the Team</h3>
+      </footer>
+
     );
   }
 
@@ -19,4 +24,4 @@ var Header = React.createClass({
 
 });
 
-module.exports = Header;
+module.exports = Footer;

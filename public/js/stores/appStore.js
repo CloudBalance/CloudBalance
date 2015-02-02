@@ -11,6 +11,8 @@ var _dropboxFileList = {};
 var _googleFileList = {};
 
 // just a stock username
+  // This should be updated by the ajax request (getAllFiles right now)
+  // However, the representation of this is hard-coded into Header.js right now
 var _username = 'John';
 
 // DOUBLECHECK: I think this goes here
@@ -79,7 +81,7 @@ var AppStore = assign({}, EventEmitter.prototype, {
         break;
 
       case AppConstants.LOGOUT:
-        this.logout();
+        AppStore.logout();
         break;
 
     }
