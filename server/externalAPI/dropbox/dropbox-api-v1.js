@@ -90,7 +90,7 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
               'fileId' : child.path,
               'filePath' : child.path,
               'fileType' : child.is_dir ? 'folder' : 'file',
-              'fileIcon' : './assets/48x48/' + child.icon + '.gif',
+              'fileIcon' : child.is_dir ? './assets/folder-icon-65.png' : './assets/file-icon.png',
               'children' : child.is_dir ? [] : undefined
             };
 
@@ -119,9 +119,9 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
 
     //async function to retrieve and parse directory contents
     var directoryRequest = function directoryRequest(path, directory, depth) {
-        unresolved++;
-        dropboxAPI.getFileDirectory(path, accessToken)
-          .then(makeDataParser(directory, depth), rejectData);
+      unresolved++;
+      dropboxAPI.getFileDirectory(path, accessToken)
+      .then(makeDataParser(directory, depth), rejectData);
     };
 
     //send initial directory GET
@@ -132,5 +132,48 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
 // dropboxAPI.removeFile = function removeFile(path) {
 //
 // };
+
+//get the User data from /account/info
+dropboxAPI.getUserInfo = function getUserInfo(accessToken) {
+  var options;
+  var pathUrl;
+
+  //build the path
+  pathUrl = versionUrl + '/account/info';
+
+  //GET request options
+  options = {
+    hostname: apiUrl,
+    path: pathUrl,
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + accessToken,
+      'Content-Type': 'application/json; charset=utf-8',
+    }
+  };
+
+  //promise to return the directory data
+  return new bPromise(function tokenRequest(resolve, reject){
+    var req = https.request(options, function(response) {
+      var data = '';
+
+      response.setEncoding('utf-8');
+
+      response.on('data', function (chunk) {
+        data += chunk;
+      });
+
+      response.on('end', function () {
+        if(response.statusCode < 200 || response.statusCode >= 300) {
+          reject(data);
+        } else {
+          resolve(data);
+        }
+      });
+    });
+
+    req.end();
+  });
+};
 
 module.exports = dropboxAPI;
