@@ -95,8 +95,8 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
             };
 
             //send a directory request
-            if((all || depth > 0) && fileObject.type === 'folder') {
-              directoryRequest(fileObject.path, fileObject.children, depth - 1);
+            if((all || depth > 0) && fileObject.fileType === 'folder') {
+              directoryRequest(fileObject.filePath, fileObject.children, depth - 1);
             }
 
             directory.push(fileObject);
