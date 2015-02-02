@@ -4,11 +4,8 @@ var apiRouter = require('./api/api-router.js');
 var morgan = require('morgan');
 var path = require('path');
 
-
-// var handler = require('./lib/request-handler');
-// var util = require('./lib/utility');
-
 var app = express();
+
 
 app.use(morgan('combined'));
 
