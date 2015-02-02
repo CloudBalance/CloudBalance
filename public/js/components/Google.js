@@ -9,7 +9,7 @@ var Google = React.createClass({
 
   //try wrapping what is being returned in parens
   // Need this, but throwing errors...
-    // var fileListItems = this.state.googleFileList.map(function(item) {
+    // var fileListItems = this.props.googleFileList.map(function(item) {
     //   return <li><File data={item} /></li>;
     // });
         // This should go inside the ul, instead of just <File />
