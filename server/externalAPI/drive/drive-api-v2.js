@@ -52,7 +52,7 @@ module.exports.getDriveFiles = function(accessToken) {
 			allFiles[itemId] = {
 				fileID: item.id,
 				fileName: item.title,
-				fileIcon: item.iconLink,
+				fileIcon: item.thumbnailLink,
 				fileLink: item.alternateLink,
 				fileType: item.mimeType
 			};
