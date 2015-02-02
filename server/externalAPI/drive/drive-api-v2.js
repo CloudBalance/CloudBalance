@@ -75,3 +75,7 @@ module.exports.getDriveFiles = function(accessToken) {
 	});
 };
 
+<<<<<<< HEAD
+=======
+// module.exports.getDriveFiles = Promise.promisify(getDriveFiles);
+>>>>>>> getallfiles working
