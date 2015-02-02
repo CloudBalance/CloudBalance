@@ -12,9 +12,17 @@ $(document).ready(function() {
   // var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
   // CloudBalanceWebAPIUtils.getAllData();
 
-  React.render(
-    <APP />,
-    document.getElementById('main')
-  );
+  if( sessionStorage.getItem('dropboxToken') && sessionStorage.getItem('driveToken') ) {
+    console.log('dropboxToken and driveToken have been found');
+    React.render(
+      <APP />,
+      document.getElementById('main')
+    );
+    
+  } else {
+    console.log('dropboxToken and driveToken have not been found and we are redirecting to /login');
+    window.location = "/login";
+  }
+
   
 });

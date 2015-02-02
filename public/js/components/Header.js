@@ -21,25 +21,10 @@ var Header = React.createClass({
 
   statics: {
     logoutClick: function() {
-      
-      AppActions.logout();
-
-      $.ajax({
-        url: '/logout',
-        dataType: 'json',
-        type: 'POST',
-        data: '',       // pass any data in the logout???
-        success: function(data) {
-          console.log('Logged Out');
-          // this.setState({data: ''data''});  
-            // Might as well clear the state & store just in case--a front-end manual logout method, unless/until we're complete confident in server actions
-          AppStore.clear();
-          // should be routed by server to the login page
-        }.bind(this),
-        error: function(xhr, status, err) {
-          console.error(this.props.url, status, err.toString());
-        }.bind(this)
-      });
+      console.log('heard a logout click');
+      window.sessionStorage.removeItem('driveToken');
+      window.sessionStorage.removeItem('dropboxToken');
+      window.location.reload();
     }
     
     
