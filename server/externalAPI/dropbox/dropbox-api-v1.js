@@ -90,7 +90,7 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
               'fileId' : child.path,
               'filePath' : child.path,
               'fileType' : child.is_dir ? 'folder' : 'file',
-              'fileIcon' : child.is_dir ? './assets/folder-icon-65.png' : './file-icon.png',
+              'fileIcon' : child.is_dir ? './assets/folder-icon-65.png' : './assets/file-icon.png',
               'children' : child.is_dir ? [] : undefined
             };
 
@@ -119,9 +119,9 @@ dropboxAPI.getFileDirectories = function getFileDirectories(path, depth, accessT
 
     //async function to retrieve and parse directory contents
     var directoryRequest = function directoryRequest(path, directory, depth) {
-        unresolved++;
-        dropboxAPI.getFileDirectory(path, accessToken)
-          .then(makeDataParser(directory, depth), rejectData);
+      unresolved++;
+      dropboxAPI.getFileDirectory(path, accessToken)
+      .then(makeDataParser(directory, depth), rejectData);
     };
 
     //send initial directory GET
