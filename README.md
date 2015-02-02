@@ -1,12 +1,12 @@
 # Project Name
 
-> Pithy project description
+Cloudbalance allows users to view, search, and manage their cloud storage accounts, focusing currently on Google Drive and Dropbox.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Preston Parry
+  - __Scrum Master__: Matt Conrad
+  - __Development Team Members__: Alan Sun, Christian Reyes
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@
 
 ## Usage
 
-> Some usage instructions
+The user is directed toward a login page for their Google Drive and Dropbox accounts. From there, the user
 
 ## Requirements
 
@@ -37,10 +37,14 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
+sudo npm install -g bower gulp
 npm install
 bower install
 ```
+
+### Running the Build Process
+
+Please follow the steps outlined in the [[Build Process Wiki | Build Process]]
 
 ### Roadmap
 
