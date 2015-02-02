@@ -13,8 +13,7 @@ Cloudbalance allows users to view, search, and manage their cloud storage accoun
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    2. [Build Process](#running-the-build-process)
+    1. [Installing Dependencies & Build Process](#installing-dependencies-build-process)
     1. [Tasks](#tasks)
 1. [Team](#team)
 1. [Contributing](#contributing)
@@ -33,17 +32,7 @@ The user is directed toward a login page for their Google Drive and Dropbox acco
 
 ## Development
 
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-sudo npm install -g bower
-npm install
-bower install
-```
-
-### Running the Build Process
+### Installing Dependencies & Build Process
 
 Please follow the steps outlined in the [Build Process Wiki](https://github.com/CloudBalance/CloudBalance/wiki/Build-Process).
 
