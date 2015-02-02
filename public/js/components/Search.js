@@ -10,12 +10,17 @@ var AppStore = require('../stores/appStore');
 
 var Search = React.createClass({
 
+  handleClear: function() {
+    AppActions.clearSearch();
+  },
+
   render:function(){
     return (
       <div id="search-container">
         <form>
           <input id="search-box" type="text" placeholder="Search for files..." />
           <button id="search-button" type="submit">Search</button>
+          <button id="clear-button" onClick={this.handleClear}>Clear</button>
         </form>
       </div>
     );

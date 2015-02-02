@@ -19,10 +19,6 @@ var Header = React.createClass({
   //   return AppStore.getUsername();
   // },
 
-  handleClick: function() {
-    AppActions.addItem('this is the item');
-  },
-
   statics: {
     logoutClick: function() {
       
@@ -32,7 +28,7 @@ var Header = React.createClass({
         url: '/logout',
         dataType: 'json',
         type: 'POST',
-        data: '',           // pass any data in the logout???
+        data: '',       // pass any data in the logout???
         success: function(data) {
           console.log('Logged Out');
           // this.setState({data: ''data''});  
@@ -59,7 +55,7 @@ var Header = React.createClass({
         <div id="banner-img"></div>
         <h1 id="title-header">CloudBalance</h1>
         <h3 id="logout-header" onClick={Header.logoutClick}>Logout</h3>
-        <h3 id="username-header" onClick={this.handleClick}>John</h3>
+        <h3 id="username-header">John</h3>
       </header>
     );
   }

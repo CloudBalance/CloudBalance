@@ -16,28 +16,28 @@ var _username = 'John';
 // DOUBLECHECK: I think this goes here
 // FIXME: we should just re-initialize the state to empty when the user starts the app
 // that's something we should be able to do inside of getInitialState
-var _logout = function() {
-  // clear out the store I guess
-  _dropboxFileList = {}
-  _googleFileList = {};
-  // AppStore.state.dropboxFileList = {};   // setState?  shouldn't really do this outside the object...
-  // AppStore.state.googleFileList = {};
-}
 
 //assign just adds the properties of the 2nd, 3rd, and larger arguments to the first object
 //then returns the first object
 var AppStore = assign({}, EventEmitter.prototype, {
   // adding methods to the EventEmitter
+  logout: function() {
+    // clear out the store I guess
+    _googleFileList = {};
+    _dropboxFileList = {};
+    // AppStore.state.dropboxFileList = {};
+    // AppStore.state.googleFileList = {};
+  },
 
   /**
    * Get the entire collection of files.
    * @return {object}
    */
   getAll: function() {
-    return ({
-      dropboxFileList: _dropboxFileList,
-      googleFileList: _googleFileList
-    });
+    return {
+      googleFileList: _googleFileList,
+      dropboxFileList: _dropboxFileList
+    };
   },
 
   getUsername: function() {
@@ -45,9 +45,8 @@ var AppStore = assign({}, EventEmitter.prototype, {
   },
 
   updateFileLists: function(data) {
-    _dropboxFileList = data.dropboxFileList;
-    _googleFileList = data.googleFileList;
-    emitChange();
+    _googleFileList = data.google;
+    _dropboxFileList = data.dropbox;
   },
 
   emitChange: function() {
@@ -69,31 +68,24 @@ var AppStore = assign({}, EventEmitter.prototype, {
   // register callback with dispatcher
     // give it a key in case one store has to wait for another store
   dispatcherIndex:AppDispatcher.register(function(payload){
+    //we emit a change after each event after the switch statement
+    //MainSection.js will be listening for these changes
     var action = payload.action; // this is our action from handleViewAction
     switch(action.actionType){
       // determine which method matches from AppConstants
       
       case AppConstants.UPDATE_FILE_LISTS:
-        _updateFileLists();
+        AppStore.updateFileLists(action.data);
         break;
 
       case AppConstants.LOGOUT:
-        _logout();
-        break;
-
-
-      case AppConstants.ADD_ITEM:
-      // invoke correlating method stored above
-        _addItem(payload.action.item);
-        break;
-
-      case AppConstants.INCREASE_ITEM:
-        _increaseItem(payload.action.index);
+        this.logout();
         break;
 
     }
-    AppStore.emitChange();
 
+    AppStore.emitChange();
+    //returning true says there are no errors. this is needed by promise in dispatcher
     return true;
   })
 
