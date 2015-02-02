@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var pathToServerRoot = '../..';
 var jwt = require('jwt-simple');
 var jwtSecret = require(pathToServerRoot + '/auth/secrets/jwt.secret');

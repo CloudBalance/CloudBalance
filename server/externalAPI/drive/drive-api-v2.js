@@ -74,5 +74,3 @@ module.exports.getDriveFiles = function(accessToken) {
 		return list;
 	});
 };
-
-// module.exports.getDriveFiles = Promise.promisify(getDriveFiles);
