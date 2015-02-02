@@ -48,18 +48,18 @@ var AppStore = assign({}, EventEmitter.prototype, {
   },
   
 
-  //addChangeListener seems like it's never used. is this redundant with registering tasks below?
+  // This method allows components to register events with the Store -- and causes Store to execute the passed-in callback in response.
+  //used by MainSection.js, where we send off new data to the store
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
-    // This method allows components to register events with the Store -- and causes Store to execute this callback in response.
 
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
 
-  // register callback with dispatcher
-    // give it a key in case one store has to wait for another store
+  // register functions with dispatcher
+  // assign it to an index (dispatcherIndex) in case one store has to wait for another store
   dispatcherIndex:AppDispatcher.register(function(payload){
     //we emit a change after each event after the switch statement
     //MainSection.js will be listening for these changes

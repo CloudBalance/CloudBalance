@@ -6,10 +6,6 @@ var File = require('./File');
 
 var Dropbox = React.createClass({
 
-    // var fileListItems = this.props.displayedDropboxFileList.map(function(item) {
-    //   return <li><File data={item} /></li>;
-    // });
-
   render:function(){
     var fileListToDisplay = 
       this.props.displayedDropboxFileList.map(
