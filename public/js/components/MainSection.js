@@ -15,10 +15,10 @@ var getStateFromStore = function() {
 var MainSection = React.createClass({
   getInitialState: function() {
     return {
-      dropboxFileList: null,
-      displayedDropboxFileList: null,
-      googleFileList: null,
-      displayedGoogleFileList: null
+      dropboxFileList: {},
+      displayedDropboxFileList: {},
+      googleFileList: {},
+      displayedGoogleFileList: {}
     }
   },
 
@@ -33,7 +33,6 @@ var MainSection = React.createClass({
       displayedGoogleFileList: allFiles.googleFileList[0]
     });
 
-    this.setState.displayedGoogleFileList = this.state.googleFileList[0];
     //TODO: possibly render. see if it automatically updates the views based on changes to state
   },
 
