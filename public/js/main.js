@@ -8,18 +8,16 @@ $(document).ready(function() {
 
   var APP = require('./components/app.js');
   var React = require('react');
-  window.React = React; // export for http://fb.me/react-devtools  -  maybe not needed
-  // var CloudBalanceWebAPIUtils = require('./utils/CloudBalanceWebAPIUtils');
-  // CloudBalanceWebAPIUtils.getAllData();
 
+  //checks if the user has logged in or not. if so, it renders our APP
   if( sessionStorage.getItem('dropboxToken') && sessionStorage.getItem('driveToken') ) {
-    console.log('dropboxToken and driveToken have been found');
     React.render(
       <APP />,
       document.getElementById('main')
     );
     
   } else {
+    //if not, it redirects to /login where our login flow begins
     console.log('dropboxToken and driveToken have not been found and we are redirecting to /login');
     window.location = "/login";
   }
