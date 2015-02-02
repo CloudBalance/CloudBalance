@@ -37,13 +37,13 @@ driveRouter.get('/callback', function(req, res){
 	oauth2Client.getToken(code, function(error, tokens) {
 		if (error) {res.send(error)};
 
-		var accessAndRefreshTokens = {
-			accessToken: tokens.access_token,
-			refreshToken: tokens.refresh_token
-		};
+		// var accessAndRefreshTokens = {
+		// 	accessToken: tokens.access_token,
+		// 	refreshToken: tokens.refresh_token
+		// };
 
 
-	  res.send(authHelper.tokenSaverMaker('drive', accessAndRefreshTokens, '/auth/dropbox/'));
+	  res.send(authHelper.tokenSaverMaker('drive', tokens.access_token, '/auth/dropbox/'));
 	  // res.sendFile(__dirname +'/');
 	});
 });
