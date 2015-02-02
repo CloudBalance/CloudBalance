@@ -19,7 +19,6 @@ var Google = React.createClass({
       <div className="files-container" id="google-container">
         <h3 className='service-title'>Google Drive</h3>
         <ul className="file-list">
-          <File fileIcon='./asset/folder-icon-65.png' fileType='folder' fileName='example-folder' />
         </ul>
       </div>
     );
