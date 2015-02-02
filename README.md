@@ -38,14 +38,14 @@ The user is directed toward a login page for their Google Drive and Dropbox acco
 From within the root directory:
 
 ```sh
-sudo npm install -g bower gulp
+sudo npm install -g bower
 npm install
 bower install
 ```
 
 ### Running the Build Process
 
-Please follow the steps outlined in the [[Build Process Wiki|Build Process]].
+Please follow the steps outlined in the [Build Process Wiki](https://github.com/CloudBalance/CloudBalance/wiki/Build-Process).
 
 ### Roadmap
 
