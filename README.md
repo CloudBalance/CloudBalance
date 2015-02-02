@@ -8,29 +8,12 @@ Cloudbalance allows users to view, search, and manage their cloud storage accoun
   - __Scrum Master__: Matt Conrad
   - __Development Team Members__: Alan Sun, Christian Reyes
 
-## Table of Contents
+### Documentation
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies & Build Process](#installing-dependencies-build-process)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
-
-## Usage
-
-The user is directed toward a login page for their Google Drive and Dropbox accounts. From there, the user
-
-## Requirements
-
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
-
-## Development
+Documentation has been provided in several different places: 
+1. The [wiki](https://github.com/CloudBalance/CloudBalance/wiki)
+2. The highLevelInfrastructure text file in the root directory of the code
+3. Extensive commenting throughout the code itself
 
 ### Installing Dependencies & Build Process
 
@@ -38,9 +21,5 @@ Please follow the steps outlined in the [Build Process Wiki](https://github.com/
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the [project roadmap](https://github.com/CloudBalance/CloudBalance/wiki/MVP-Product-Vision), and our [long term product vision](https://github.com/CloudBalance/CloudBalance/wiki/Longterm-Product-Vision).
 
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
