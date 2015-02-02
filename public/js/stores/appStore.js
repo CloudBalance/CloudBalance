@@ -10,31 +10,22 @@ var CHANGE_EVENT = 'change';
 var _dropboxFileList = {};
 var _googleFileList = {};
 
-// just a stock username
-  // This should be updated by the ajax request (getAllFiles right now)
-  // However, the representation of this is hard-coded into Header.js right now
+// if we want to have a username, this is where it would go. this is not currently being used anywhere in our application
 var _username = 'John';
-
-// DOUBLECHECK: I think this goes here
-// FIXME: we should just re-initialize the state to empty when the user starts the app
-// that's something we should be able to do inside of getInitialState
 
 //assign just adds the properties of the 2nd, 3rd, and larger arguments to the first object
 //then returns the first object
 var AppStore = assign({}, EventEmitter.prototype, {
   // adding methods to the EventEmitter
   logout: function() {
-    // clear out the store I guess
+    // we could clear out the store on logout. This is not hooked up currently
     _googleFileList = {};
     _dropboxFileList = {};
     // AppStore.state.dropboxFileList = {};
     // AppStore.state.googleFileList = {};
   },
 
-  /**
-   * Get the entire collection of files.
-   * @return {object}
-   */
+  //return an object with all of the files
   getAll: function() {
     return {
       googleFileList: _googleFileList,

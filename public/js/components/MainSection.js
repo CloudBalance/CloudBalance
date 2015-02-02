@@ -15,6 +15,7 @@ var getStateFromStore = function() {
 var MainSection = React.createClass({
   getInitialState: function() {
     return {
+      //sets these attributes equal to empty versions so <Google /> and <Dropbox /> don't choke before we get data in from our ajax request
       dropboxFileList: {},
       displayedDropboxFileList: [],
       googleFileList: {},
@@ -26,7 +27,6 @@ var MainSection = React.createClass({
 
   _onChange: function() {
     var allFiles = getStateFromStore().allFiles;
-    //TODO: verify. we may need to adjust [0] to get to the root directory for each, depending on the format of what is returned from API calls
     //NOTE: we are resetting the displayedFileList to the root directory on every change to the store. This is ok for now, but once we are making more changes to the store, this logic will need to be rewritten. 
     this.setState({
       googleFileList: allFiles.googleFileList,
@@ -79,8 +79,7 @@ var MainSection = React.createClass({
     });
   },
 
-  // Need to set the data object attributes (using methods in File class and listeners here?)
-      // Luckily this method is accessible from the File component
+  //moveFiles is not implemented yet
   moveFiles: function(data) {
     $.ajax({
       url: 'api/1/moveFiles',
