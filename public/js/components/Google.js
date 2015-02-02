@@ -7,14 +7,10 @@ var File = require('./File');
 
 var Google = React.createClass({
 
-  //try wrapping what is being returned in parens
-  // Need this, but throwing errors...
-    // var fileListItems = this.props.googleFileList.map(function(item) {
-    //   return <li><File data={item} /></li>;
-    // });
-        // This should go inside the ul, instead of just <File />
-          // {fileListItems}
+
   render:function(){
+    //The file lists we are are getting are different for each service. For Google, the root directory just says 'root', and has a children property, while for Dropbox, the root directory actually holds the files/folders that are in the root directoyr. 
+    //before we get data back, we do not have a .children property, so this will choke and stop execution. Thus, we have the .children check here. 
     if(this.props.displayedGoogleFileList.children) {
       var fileListToDisplay = 
         this.props.displayedGoogleFileList.children.map(function(file) {
@@ -36,7 +32,7 @@ var Google = React.createClass({
       );
 
     } else {
-      //this is hacky duplicate code to handle the initial case where a <Google /> React component is created before we have data from the ajax call
+      //this is hacky duplicate code to handle the initial case where a <Google /> React component is created before we have data from the ajax call. Could probably promisify our getInitialData call within MainSection to prevent this from happening. 
       return (
         <div className="files-container" id="google-container">
           <h3 className='service-title'>Google Drive</h3>
@@ -49,21 +45,5 @@ var Google = React.createClass({
   },
 
 });
-
-//example pattern from tutorial: 
-// render: function() {
-//   var commentNodes = this.props.data.map(function (comment) {
-//     return (
-//       <Comment author={comment.author}>
-//         {comment.text}
-//       </Comment>
-//     );
-//   });
-//   return (
-//     <div className="commentList">
-//       {commentNodes}
-//     </div>
-//   );
-// }
 
 module.exports = Google;
