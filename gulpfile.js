@@ -26,12 +26,10 @@ gulp.task('browserify', function() {
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/js'));
   gulp.src('public/js/login.js')
-    // the following will convert all JSX to JS
     .pipe(browserify({transform: 'reactify'}))
     .pipe(concat('login.js'))
     .pipe(gulp.dest('dist/js'));
   gulp.src('public/js/signup.js')
-    // the following will convert all JSX to JS
     .pipe(browserify({transform: 'reactify'}))
     .pipe(concat('signup.js'))
     .pipe(gulp.dest('dist/js'));

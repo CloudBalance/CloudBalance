@@ -22,6 +22,12 @@ var AppActions = {
     })
   },
 
+  clearSearch: function() {
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.CLEAR_SEARCH
+    })
+  },
+
   //FIX: modify to be getAlLFiles
   updateFileLists: function(data) {
     AppDispatcher.handleViewAction({

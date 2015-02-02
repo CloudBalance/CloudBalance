@@ -6,7 +6,7 @@ var React = require('react');
 var AppStore = require('../stores/appStore');
 
 /**
- * Retrieve the current TODO data from the TodoStore
+ * Retrieve the current data from the Store
  */
 var getAppState = function() {
   return {
@@ -37,8 +37,7 @@ var App = React.createClass({
     return (
       <div id='main-container'>
         <Header />
-        <MainSection
-          allFiles={this.state.allFiles} />
+        <MainSection />
         <Footer />
       </div>
     );

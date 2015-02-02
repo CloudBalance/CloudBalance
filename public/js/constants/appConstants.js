@@ -4,11 +4,12 @@ module.exports = keyMirror({
   // name all of our actions here:
   UPDATE_FILE_LISTS: null,
   LOGOUT: null,
+  CLEAR_SEARCH: null,
   // CLOUDBALANCE_RENAME: null,
   // CLOUDBALANCE_DESTROY: null,
 
   ADD_ITEM: null,
-  INCREASE_ITEM: null,
+  INCREASE_ITEM: null   //,
 
 
   // CLOUDBALANCE_MOVE_FROM_DROPBOX: null,

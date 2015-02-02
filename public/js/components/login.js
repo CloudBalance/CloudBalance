@@ -12,7 +12,7 @@ var Login = React.createClass({
   statics: {
     submitLogin: function(data) {
       $.ajax({
-        url: 'this.props.url',      // Is there where we want it sent???
+        url: 'auth/loginChain',      // Is this where we want it sent???
         dataType: 'json',
         type: 'POST',
         data: {
