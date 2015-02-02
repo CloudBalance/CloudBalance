@@ -18,11 +18,9 @@ var _username = 'John';
 var AppStore = assign({}, EventEmitter.prototype, {
   // adding methods to the EventEmitter
   logout: function() {
-    // we could clear out the store on logout. This is not hooked up currently
+    //clears all data from our store on a logout
     _googleFileList = {};
     _dropboxFileList = {};
-    // AppStore.state.dropboxFileList = {};
-    // AppStore.state.googleFileList = {};
   },
 
   //return an object with all of the files
