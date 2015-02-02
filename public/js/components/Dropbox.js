@@ -25,7 +25,7 @@ var Dropbox = React.createClass({
         </ul>
       </div>
     );
-  },
+  }
 
 });
 
