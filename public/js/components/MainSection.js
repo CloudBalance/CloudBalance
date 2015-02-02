@@ -16,26 +16,26 @@ var MainSection = React.createClass({
   getInitialState: function() {
     return {
       dropboxFileList: {},
-      displayedDropboxFileList: {},
+      displayedDropboxFileList: [],
       googleFileList: {},
-      displayedGoogleFileList: {}
+      displayedGoogleFileList: []
     }
   },
 
   _onChange: function() {
-    var allFiles = getStateFromStore();
+    var allFiles = getStateFromStore().allFiles;
     //TODO: verify. we may need to adjust [0] to get to the root directory for each, depending on the format of what is returned from API calls
     //NOTE: we are resetting the displayedFileList to the root directory on every change to the store. This is ok for now, but once we are making more changes to the store, this logic will need to be rewritten. 
+    console.log('about to set state inside of _onChange');
     this.setState({
       googleFileList: allFiles.googleFileList,
       dropboxFileList: allFiles.dropboxFileList,
-      displayedDropboxFileList: allFiles.dropboxFileList[0],
+      displayedDropboxFileList: allFiles.dropboxFileList,
       displayedGoogleFileList: allFiles.googleFileList[0]
     });
 
-    console.log('this.state within mainSection.js');
-    console.log(this.state);
-
+    console.log('calling this.render()');
+    this.render();
     //TODO: possibly render. see if it automatically updates the views based on changes to state
   },
 
