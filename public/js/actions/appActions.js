@@ -27,6 +27,13 @@ var AppActions = {
     })
   },
 
+  logout: function() {
+    console.log('heard a logout in appActions');
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.LOGOUT
+    })
+  }
+
 };
 
 module.exports = AppActions;
