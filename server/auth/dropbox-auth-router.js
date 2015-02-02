@@ -75,7 +75,7 @@ dropboxRouter.get('/callback', function dropboxCallback(req,res) {
   .then(function(data) {
     token = JSON.parse(data);
     userAccessToken = token;
-    res.end(authHelper.tokenSaverMaker('dropbox', token.access_token, '/auth/drive/index'));
+    res.end(authHelper.tokenSaverMaker('dropbox', token.access_token, '/'));
   });
   // res.redirect('/auth/dropbox/listfiles');
 });
