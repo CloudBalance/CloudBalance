@@ -52,10 +52,12 @@ module.exports.getDriveFiles = function(accessToken) {
 			allFiles[itemId] = {
 				fileID: item.id,
 				fileName: item.title,
-				fileIcon: item.thumbnailLink,
+				fileIcon: item.iconLink,
 				fileLink: item.alternateLink,
 				fileType: item.mimeType
 			};
+			if (item.thumbnailLink) {allFiles[itemId].fileIcon = item.thumbnailLink};
+			if (item.mimeType === 'application/vnd.google-apps.folder') {allFiles[itemId].fileIcon = './assets/folder-icon-65.png'};
 		});
 		return {};
 	})
