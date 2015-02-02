@@ -12,7 +12,6 @@ req.body.driveRefreshToken' to the '/driveFiles' route as specified in
 externalApi/drive/drive-api-v2.js
 */
 apiRouter.all('*', function(req, res, next) {
-  console.log('parsing tokens');
   req.tokens = {
     drive : jwt.decode(req.headers.drivetoken, jwtSecret.secret),
     dropbox : jwt.decode(req.headers.dropboxtoken, jwtSecret.secret)
@@ -22,8 +21,6 @@ apiRouter.all('*', function(req, res, next) {
 
 
 apiRouter.get('/getAllFiles', function(req,res) {
-  console.log('getting all files');
-  console.log('tokens:',req.tokens);
   var fileDirectories = {};
   var unresolved = 2;
 
@@ -42,7 +39,6 @@ apiRouter.get('/getAllFiles', function(req,res) {
   dropboxAPI.getFileDirectories('/', -1, req.tokens.dropbox)
   .then(function(data) {
     fileDirectories.dropbox = data;
-    console.log('fileDirectories:', fileDirectories);
     unresolved--;
     if(unresolved === 0) {
       res.set('Content-Type', 'application/json')
