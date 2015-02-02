@@ -31,7 +31,6 @@ apiRouter.get('/getAllFiles', function(req,res) {
 
   driveAPI.getDriveFiles(req.tokens.drive)
     .then(function(data) {
-      console.log(data);
       fileDirectories.google = data;
       unresolved--;
       if(unresolved === 0) {
