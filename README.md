@@ -14,6 +14,7 @@ Cloudbalance allows users to view, search, and manage their cloud storage accoun
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
+    2. [Build Process](#running-the-build-process)
     1. [Tasks](#tasks)
 1. [Team](#team)
 1. [Contributing](#contributing)
@@ -44,7 +45,7 @@ bower install
 
 ### Running the Build Process
 
-Please follow the steps outlined in the [[Build Process Wiki | Build Process]]
+Please follow the steps outlined in the [[Build Process Wiki|Build Process]]
 
 ### Roadmap
 
