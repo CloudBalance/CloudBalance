@@ -18,14 +18,15 @@
     "googleapis": "^1.1.1",
     "http": "0.0.0",
     "json-serialize": "^1.1.2",
+    "jwt-simple": "^0.2.0",
     "keymirror": "^0.1.1",
     "mongoose": "~3.8.8",
     "morgan": "^1.5.1",
     "object-assign": "^2.0.0",
     "passport": ">= 0.0.0",
     "passport-google-oauth2": ">= 0.0.0",
-    "react-tools": "^0.12.2",
-    "querystring": "^0.2.0"
+    "querystring": "^0.2.0",
+    "react-tools": "^0.12.2"
   },
   "devDependencies": {
     "gulp": "^3.7.0",
@@ -36,8 +37,4 @@
     "react": "^0.12.2",
     "reactify": "^0.13.1"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Successful Dropbox Authorization code retrieval
