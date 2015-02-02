@@ -27,11 +27,14 @@ var MainSection = React.createClass({
     //TODO: verify. we may need to adjust [0] to get to the root directory for each, depending on the format of what is returned from API calls
     //NOTE: we are resetting the displayedFileList to the root directory on every change to the store. This is ok for now, but once we are making more changes to the store, this logic will need to be rewritten. 
     this.setState({
-      googleFileList: allFilses.googleFileList,
+      googleFileList: allFiles.googleFileList,
       dropboxFileList: allFiles.dropboxFileList,
       displayedDropboxFileList: allFiles.dropboxFileList[0],
       displayedGoogleFileList: allFiles.googleFileList[0]
     });
+
+    console.log('this.state within mainSection.js');
+    console.log(this.state);
 
     //TODO: possibly render. see if it automatically updates the views based on changes to state
   },
@@ -54,9 +57,16 @@ var MainSection = React.createClass({
   getAllFiles: function() {
     $.ajax({
       url: 'api/1/getAllFiles',
+      headers: {
+        'driveToken': sessionStorage.getItem('driveToken'),
+        'dropboxToken' : sessionStorage.getItem('dropboxToken')
+      },
       dataType: 'json',
+      type: 'GET',
       success: function(data) {
         //this function doesn't exist yet
+        console.log('successful!');
+        console.log(data);
         AppActions.updateFileLists(data);
       }.bind(this),
       error: function(xhr, status, err) {
