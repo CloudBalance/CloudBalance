@@ -11,8 +11,6 @@ var Dropbox = React.createClass({
     // });
 
   render:function(){
-    console.log('displayedDropboxFileList inside of Dropbox.js');
-    console.log(this.props.displayedDropboxFileList);
     var fileListToDisplay = 
       this.props.displayedDropboxFileList.map(
         function(file) {
