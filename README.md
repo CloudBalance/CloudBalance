@@ -11,6 +11,7 @@ Cloudbalance allows users to view, search, and manage their cloud storage accoun
 ### Documentation
 
 Documentation has been provided in several different places: 
+
 1. The [wiki](https://github.com/CloudBalance/CloudBalance/wiki)
 2. The highLevelInfrastructure text file in the root directory of the code
 3. Extensive commenting throughout the code itself
