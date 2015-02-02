@@ -16,10 +16,13 @@ var getAppState = function() {
 
 var App = React.createClass({
 
+  //this is run automatically each time a new <App /> is created
+  //the object that is returned form getInitialState is set as the state of the component, accessed through this.state.variableName
   getInitialState: function() {
     return getAppState();
   },
 
+  //register an event listener with the store once the component has been successfully rendered/mounted on the page
   componentDidMount: function() {
     AppStore.addChangeListener(this._onChange);
   },
@@ -28,12 +31,8 @@ var App = React.createClass({
     AppStore.removeChangeListener(this._onChange);
   },
 
-  /**
-   * @return {object}
-   */
+  //this is where we render the component itself, as well as any subcomponents, as well as passing in data to these subcomponents, where they will access it through this.props.variableName
   render: function() {
-    //TODO: check if this is the correct syntax for this
-    //TODO: make sure we're handling allFiles propertly in MainSection, since it includes two different types of files
     return (
       <div id='main-container'>
         <Header />
@@ -43,14 +42,12 @@ var App = React.createClass({
     );
   },
 
-  /**
-   * Event handler for 'change' events coming from the AppStore
-   */
+  
+  //Event handler for 'change' events coming from the AppStore. 
+  //we need this to prevent an error from popping up in the console, though it doesn't impact functionality currently
   _onChange: function() {
     this.setState(getAppState());
   }
 });
-
-//TODO: investigate if we need a React.render() function here to attach this to the DOM. 
 
 module.exports = App;
