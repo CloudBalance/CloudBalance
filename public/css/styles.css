@@ -27,14 +27,14 @@ body {
 #header {
   background-color: black;
   color: white;
-  height: 110px;
+  height: 80px;
   width: 100%;
 }
 
 #banner-img {
-  background-image: url('../assets/cloud-banner.png');
-  height: 100px;
-  width: 100px;
+  background-image: url('../assets/cloud-banner-70.png');
+  height: 70px;
+  width: 54px;
   float: left;
   margin: 5px;
   border-radius: 5px;
@@ -42,11 +42,11 @@ body {
 
 #title-header {
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
 }
 
 #username-header {        
-  margin: 10px;
+  margin: 5px;
   margin-left: 120px;
 }
 
@@ -109,7 +109,7 @@ h2 {}
   width: 65px;
 }
 .file-icon {
-  background-image: url('../assets/folder-icon-65.png');  /*REPLACE this when image is working from React*/
+  /*background-image: url('../assets/folder-icon-65.png'); */
   height: 65px;
   width: 65px;
   /*size: 65px;*/
@@ -120,6 +120,11 @@ h2 {}
 }
 
 /* Footer.js */
-
+#/*footer {
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 100%;
+}*/
 
 
