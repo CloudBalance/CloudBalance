@@ -33,8 +33,6 @@ var MainSection = React.createClass({
       displayedGoogleFileList: allFiles.googleFileList[0]
     });
 
-    this.setState.;
-
     this.setState.displayedGoogleFileList = this.state.googleFileList[0];
     //TODO: possibly render. see if it automatically updates the views based on changes to state
   },

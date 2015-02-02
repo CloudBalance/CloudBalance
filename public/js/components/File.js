@@ -18,7 +18,7 @@ var File = React.createClass({
 
   handleClick: function() {
     if(this.props.data.children) {
-
+      //map through the list of children and display them
     }
   },
 
