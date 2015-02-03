@@ -3,7 +3,6 @@ var express = require('express');
 var https = require('https');
 var querystring = require('querystring');
 var bPromise = require('bluebird');
-var dropboxAPI = require('../externalAPI/dropbox/dropbox-api-v1.js');
 var authHelper = require('./auth-helper.js');
 
 var userAuthCode;
@@ -77,24 +76,6 @@ dropboxRouter.get('/callback', function dropboxCallback(req,res) {
     userAccessToken = token;
     res.end(authHelper.tokenSaverMaker('dropbox', token.access_token, '/'));
   });
-  // res.redirect('/auth/dropbox/listfiles');
-});
-
-//return list of files
-dropboxRouter.get('/listfiles', function test(req, res) {
-  // var token;
-  // getToken(userAuthCode)
-  //   .then(function(data) {
-  //     token = JSON.parse(data);
-  //     userAccessToken = token;
-  //   })
-    // .then(function() {
-      dropboxAPI.getFileDirectories('/', -1, userAccessToken.access_token)
-        .then(function(data) {
-          res.set('Content-Type', 'application/json')
-          .status(200).end(JSON.stringify(data));
-        });
-    // });
 });
 
 module.exports = dropboxRouter;
