@@ -7,6 +7,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
+  height:95%;
  /* padding-bottom: 200px; */    /*Height of footer*/    /*initial: 50px;*/
 }
 
@@ -20,8 +21,9 @@ body {
 /*App.js*/
 #main-container {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   padding: 0px;
+  position:relative;
 }
 
 /* Header.js */
@@ -58,7 +60,9 @@ body {
 }
 
 /* MainSection.js / Dropbox.js/Google.js */
-#main-section{}       
+#main-section{
+  padding-bottom:750px; /*did this to display footer properly*/
+}       
 
 .files-container {
   background-image: url('../assets/transpBlack50.png');
@@ -127,11 +131,12 @@ ul {
 
 /* Footer.js */
 #footer {
-  /*position: absolute;*/
-  /*bottom: 0;*/
-  /*background-color: black;*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: black;
   color: white;
-  height: 200px;  /* 50px;*/
+  height: 250px;  /* 50px;*/
   width: 100%;
   margin: 0px;
   padding: 5px 20px;
