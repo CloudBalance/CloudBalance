@@ -4,7 +4,6 @@ var AppActions = require('../actions/appActions');
 var AppStore = require('../stores/appStore');
 var File = require('./File');
 
-
 var Google = React.createClass({
 
   render:function(){
@@ -23,7 +22,6 @@ var Google = React.createClass({
             }
             fileListToDisplay.push(<li><File data={file} /></li>);
           }.bind(this));
-
 
           //still within if(children)
         return (
@@ -50,23 +48,5 @@ var Google = React.createClass({
   }
 
 });
-
-          // <img className='loading-img' src='../assets/loading.gif' />
-
-//example pattern from tutorial: 
-// render: function() {
-//   var commentNodes = this.props.data.map(function (comment) {
-//     return (
-//       <Comment author={comment.author}>
-//         {comment.text}
-//       </Comment>
-//     );
-//   });
-//   return (
-//     <div className="commentList">
-//       {commentNodes}
-//     </div>
-//   );
-// }
 
 module.exports = Google;

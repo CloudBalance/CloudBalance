@@ -3,11 +3,6 @@ var React = require('react');
 var AppActions = require('../actions/appActions');
 var AppStore = require('../stores/appStore');
 
-// var search = function(name) {
-//   return (
-//   );
-// };
-
 var Search = React.createClass({
 
   handleChange: function() {
@@ -29,9 +24,6 @@ var Search = React.createClass({
     );
   },
 
-  /**
-   * Event handler for 'change' events coming from the AppStore
-   */
   _onChange: function() {
 
   }
