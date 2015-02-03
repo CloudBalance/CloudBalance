@@ -39,7 +39,6 @@ var MainSection = React.createClass({
     this.render();
   },
 
-
   handleSearchInput: function(filterText) {
     this.setState({
       filterText: filterText
@@ -99,7 +98,6 @@ var MainSection = React.createClass({
       }.bind(this)
     });
   },
-
 
   render: function(){
     return (

@@ -3,7 +3,6 @@ var AppConstants = require('../constants/appConstants');
 var assign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
 
-
 // Non-Flux-related items
 var CHANGE_EVENT = 'change';
 
@@ -45,7 +44,6 @@ var AppStore = assign({}, EventEmitter.prototype, {
       // currently, CHANGE_EVENT is just a string ('change'), set on line 8
   },
   
-
   // This method allows components to register events with the Store -- and causes Store to execute the passed-in callback in response.
   //used by MainSection.js, where we send off new data to the store
   addChangeListener: function(callback) {
@@ -82,6 +80,4 @@ var AppStore = assign({}, EventEmitter.prototype, {
 
 });
 
-
 module.exports = AppStore;
-
