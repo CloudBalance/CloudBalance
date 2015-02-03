@@ -8,10 +8,10 @@ var Google = React.createClass({
 
   render:function(){
 
-    console.log('googleFileList[0].children');
-    console.log(this.props.googleFileList);
-
+    {/* This is how you comment in JSX */}
+    {/* Make sure that the ajax response has arrived */}
     if(this.props.googleFileList[0]) {
+
       if(this.props.googleFileList[0].children) {
 
         var fileListToDisplay = [];
