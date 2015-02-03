@@ -8,24 +8,13 @@ var File = require('./File');
 var Google = React.createClass({
 
 
-          // var fileListToDisplay = 
-          //   this.props.displayedGoogleFileList.children.map(function(file) {
-          //     return (
-          //       <li>
-          //         <File data={file} />
-          //       </li>
-          //     );
-          //   }
-          // );
-
-          // } else {
 
   render:function(){
 
-    console.log('googleFileList[0].children');
-    console.log(this.props.googleFileList);
-
+    {/* This is how you comment in JSX */}
+    {/* Make sure that the ajax response has arrived */}
     if(this.props.googleFileList[0]) {
+
       if(this.props.googleFileList[0].children) {
 
         var fileListToDisplay = [];
