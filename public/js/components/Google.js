@@ -14,29 +14,51 @@ var Google = React.createClass({
     // });
         // This should go inside the ul, instead of just <File />
           // {fileListItems}
+
+          
+          // var fileListToDisplay = 
+          //   this.props.displayedGoogleFileList.children.map(function(file) {
+          //     return (
+          //       <li>
+          //         <File data={file} />
+          //       </li>
+          //     );
+          //   }
+          // );
+
+          // } else {
+
   render:function(){
-    if(this.props.displayedGoogleFileList.children) {
-      var fileListToDisplay = 
-        this.props.displayedGoogleFileList.children.map(function(file) {
-          return (
-            <li>
-              <File data={file} />
-            </li>
-          );
-        }
-      );
-        //still within if(children)
-      return (
-        <div className="files-container" id="google-container">
-          <h3 className='service-title'>Google Drive</h3>
-          <ul className="file-list">
-            {fileListToDisplay}
-          </ul>
-        </div>
-      );
+
+    console.log('googleFileList[0].children');
+    console.log(this.props.googleFileList);
+
+    if(this.props.googleFileList[0]) {
+      if(this.props.googleFileList[0].children) {
+
+        var fileListToDisplay = [];
+
+          this.props.displayedGoogleFileList.children.forEach(function(file) {
+            if (file.fileName.indexOf(this.props.filterText) === -1) {
+              return;
+            }
+            fileListToDisplay.push(<li><File data={file} /></li>);
+          }.bind(this));
+
+
+          //still within if(children)
+        return (
+          <div className="files-container" id="google-container">
+            <h3 className='service-title'>Google Drive</h3>
+            <ul className="file-list">
+              {fileListToDisplay}
+            </ul>
+          </div>
+        );
+      }
 
     } else {
-      //this is hacky duplicate code to handle the initial case where a <Google /> React component is created before we have data from the ajax call
+      // handle the initial case where a <Google /> React component is created before we have data from the ajax call
       return (
         <div className="files-container" id="google-container">
           <h3 className='service-title'>Google Drive</h3>
@@ -46,9 +68,11 @@ var Google = React.createClass({
         </div>
       );
     }
-  },
+  }
 
 });
+
+          // <img className='loading-img' src='../assets/loading.gif' />
 
 //example pattern from tutorial: 
 // render: function() {
