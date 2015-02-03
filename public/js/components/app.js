@@ -5,9 +5,7 @@ var Footer = require('./Footer');
 var React = require('react');
 var AppStore = require('../stores/appStore');
 
-/**
- * Retrieve the current data from the Store
- */
+//get the current data from the Store
 var getAppState = function() {
   return {
     allFiles: AppStore.getAll()
@@ -42,9 +40,8 @@ var App = React.createClass({
     );
   },
 
-  
   //Event handler for 'change' events coming from the AppStore. 
-  //we need this to prevent an error from popping up in the console, though it doesn't impact functionality currently
+  //having an _onChange function here prevents an error from popping up in the console, though it doesn't impact functionality currently
   _onChange: function() {
     this.setState(getAppState());
   }
