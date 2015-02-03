@@ -10,12 +10,8 @@ var AppStore = require('../stores/appStore');
 
 var Search = React.createClass({
 
-  handleClear: function() {
-    AppActions.clearSearch();
-  },
-
   handleChange: function() {
-    this.props.onUserInput(this.refs.filterTextInput.getDOMNode().value);
+    this.props.onSearchInput(this.refs.filterTextInput.getDOMNode().value);
   },
 
   render:function(){

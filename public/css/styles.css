@@ -67,6 +67,10 @@ body {
   height: 450px;
 }
 
+ul {
+  list-style-type: none;
+}
+
 /* Search.js */
 #search-container {
   text-align: center;
@@ -88,6 +92,7 @@ body {
 #dropbox-container {
   float: left;
   margin: 10px 1.5% 10px 3%;
+  overflow: hidden;
 }
 .service-title {
   margin: 4px 0 4px 8px;
@@ -98,6 +103,8 @@ body {
 #google-container {
   float: right;
   margin: 10px 3% 10px 1.5%;
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 /* File.js */
@@ -105,12 +112,13 @@ body {
   text-align: center;
   height: 80px;
   width: 65px;
+  overflow: hidden;
+  float: left;
+  margin: 5px;
 }
 .file-icon {
-  /*background-image: url('../assets/folder-icon-65.png'); */
   height: 65px;
   width: 65px;
-  /*size: 65px;*/
 }
 .fileName {
   font-size: 10px;
