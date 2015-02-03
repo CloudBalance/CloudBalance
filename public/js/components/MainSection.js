@@ -16,9 +16,9 @@ var MainSection = React.createClass({
   getInitialState: function() {
     return {
       //sets these attributes equal to empty versions so <Google /> and <Dropbox /> don't choke before we get data in from our ajax request
-      dropboxFileList: {},
+      dropboxFileList: [],
       displayedDropboxFileList: [],
-      googleFileList: {},
+      googleFileList: [],
       displayedGoogleFileList: [],
       // This last attribute is for search functionality
       filterText: ''
@@ -32,7 +32,8 @@ var MainSection = React.createClass({
       googleFileList: allFiles.googleFileList,
       dropboxFileList: allFiles.dropboxFileList,
       displayedDropboxFileList: allFiles.dropboxFileList,
-      displayedGoogleFileList: allFiles.googleFileList[0]
+      displayedGoogleFileList: allFiles.googleFileList[0],
+      filterText: ''
     });
     //We have to force it to render after updating the state to make sure to pass the new data down to the sub components. 
     this.render();
@@ -48,16 +49,11 @@ var MainSection = React.createClass({
   componentDidMount: function() {
     //the ajax call goes here to make sure it has access to 'this' and state and props
     AppStore.addChangeListener(this._onChange);
-    
     this.getAllFiles();
   },
 
   componentWillUnmount: function() {
     AppStore.removeChangeListener(this._onChange);
-  },
-
-  displayFileList: function() {
-
   },
 
   getAllFiles: function() {
@@ -71,6 +67,7 @@ var MainSection = React.createClass({
       type: 'GET',
       success: function(data) {
         //this function doesn't exist yet
+        console.log('got data back in mainSection', data);
         AppActions.updateFileLists(data);
       }.bind(this),
       error: function(xhr, status, err) {
@@ -109,11 +106,14 @@ var MainSection = React.createClass({
     return (
       <div id="main-section">
         <Search 
-          filterText={this.state.filterText}  />
+          filterText={this.state.filterText}
+          onSearchInput={this.handleSearchInput}  />
         <Dropbox
+          dropboxFileList={this.state.dropboxFileList}
           displayedDropboxFileList={this.state.displayedDropboxFileList} 
           filterText={this.state.filterText}  />
         <Google
+          googleFileList={this.state.googleFileList}
           displayedGoogleFileList={this.state.displayedGoogleFileList} 
           filterText={this.state.filterText}  />
       </div>
