@@ -12,7 +12,7 @@ var Footer = React.createClass({
   render: function() {
     return (
       <footer id="footer">
-        <p className="project-info">Made at Hack Reactor... whatever we are supposed to say here...</p>
+        <p className="project-info">Proudly made at Hack Reactory by an awesome team!</p>
         <h3 id="aboutClick" onClick={this.openAbout}>About the Team</h3>
         <div className="team-info">
           <div href='http://csreyes.com' className="profile">
