@@ -6,8 +6,6 @@ var File = require('./File');
 
 var Dropbox = React.createClass({
 
-<<<<<<< HEAD
-=======
     // var fileListItems = this.props.displayedDropboxFileList.map(function(item) {
     //   return <li><File data={item} /></li>;
     // });
@@ -25,26 +23,25 @@ var Dropbox = React.createClass({
 //     );
 
 
->>>>>>> gets search working
   render:function(){
 
-      var fileListToDisplay = [];
+    var fileListToDisplay = [];
 
-      this.props.dropboxFileList.forEach(function(file) {
-        if (file.fileName.indexOf(this.props.filterText) === -1) {
-          return;
-        }
-        fileListToDisplay.push(<li><File data={file} /></li>);
-      }.bind(this));
+    this.props.dropboxFileList.forEach(function(file) {
+      if (file.fileName.indexOf(this.props.filterText) === -1) {
+        return;
+      }
+      fileListToDisplay.push(<li><File data={file} /></li>);
+    }.bind(this));
 
-        return (
-          <div className="files-container" id="dropbox-container">
-            <h3 className='service-title'>Dropbox</h3>
-            <ul className="file-list">
-              {fileListToDisplay}
-            </ul>
-          </div>
-        );
+      return (
+        <div className="files-container" id="dropbox-container">
+          <h3 className='service-title'>Dropbox</h3>
+          <ul className="file-list">
+            {fileListToDisplay}
+          </ul>
+        </div>
+      );
 
   }
 

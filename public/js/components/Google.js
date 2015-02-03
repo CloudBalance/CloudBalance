@@ -7,43 +7,7 @@ var File = require('./File');
 
 var Google = React.createClass({
 
-<<<<<<< HEAD
 
-  render:function(){
-    //The file lists we are are getting are different for each service. For Google, the root directory just says 'root', and has a children property, while for Dropbox, the root directory actually holds the files/folders that are in the root directoyr. 
-    //before we get data back, we do not have a .children property, so this will choke and stop execution. Thus, we have the .children check here. 
-    if(this.props.displayedGoogleFileList.children) {
-      var fileListToDisplay = 
-        this.props.displayedGoogleFileList.children.map(function(file) {
-          return (
-            <li>
-              <File data={file} />
-            </li>
-          );
-        }
-      );
-        //still within if(children)
-      return (
-        <div className="files-container" id="google-container">
-          <h3 className='service-title'>Google Drive</h3>
-          <ul className="file-list">
-            {fileListToDisplay}
-          </ul>
-        </div>
-      );
-
-    } else {
-      //this is hacky duplicate code to handle the initial case where a <Google /> React component is created before we have data from the ajax call. Could probably promisify our getInitialData call within MainSection to prevent this from happening. 
-=======
-  //try wrapping what is being returned in parens
-  // Need this, but throwing errors...
-    // var fileListItems = this.props.googleFileList.map(function(item) {
-    //   return <li><File data={item} /></li>;
-    // });
-        // This should go inside the ul, instead of just <File />
-          // {fileListItems}
-
-          
           // var fileListToDisplay = 
           //   this.props.displayedGoogleFileList.children.map(function(file) {
           //     return (
@@ -87,7 +51,6 @@ var Google = React.createClass({
 
     } else {
       // handle the initial case where a <Google /> React component is created before we have data from the ajax call
->>>>>>> gets search working
       return (
         <div className="files-container" id="google-container">
           <h3 className='service-title'>Google Drive</h3>
@@ -101,8 +64,6 @@ var Google = React.createClass({
 
 });
 
-<<<<<<< HEAD
-=======
           // <img className='loading-img' src='../assets/loading.gif' />
 
 //example pattern from tutorial: 
@@ -121,5 +82,4 @@ var Google = React.createClass({
 //   );
 // }
 
->>>>>>> gets search working
 module.exports = Google;
